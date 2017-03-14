@@ -1,3 +1,7 @@
+.navbar-default{
+  background-color: transparent;
+  border: none;
+}
 .navbar-brand,
 .navbar-nav li a {
     line-height: 80px;
@@ -16,17 +20,26 @@
 .dropdown-menu li a{
   height: 30px;
   line-height: 30px;
-  font-size: .9em;
-  font-weight: bold;
+  font-size: .95em;
+  /*font-weight: bold;*/
   text-align: center;
+}
+.dropdown-menu li a:hover{
+  margin-left: 20px;
+  background-color: #F8F8F8 !important;
 }
 .dropdown-menu {
   background-color: #F8F8F8;
+  width: 265px;
 }
-#logo{
-	font-size: 1.5em;
+.welcome{
+	font-size: 3em;
 	font-weight: bold;
-  color: #428bca;
+  color: white !important;
+}
+.home{
+  font-size: 2.2em;
+  color: #428bca !important;
 }
 #sign-in{
 	position: relative;
@@ -35,12 +48,18 @@
 	padding: 25px;
 	padding-top: 10px;
 	padding-bottom: 10px;
+  font-size: 1.2em;
 	font-weight: bold;
   transition: all .3s ease;
+  color: white;
+  border-color: white;
+  border-radius: 0px;
 }
 .dropdown-menu li .sign-out:hover{
-  background-color: #FE8F9D !important;
-  color: white !important;
+  color: red !important;
+  margin-left: 20px;
+  background-color: #F8F8F8 !important;
+  /*color: white !important;*/
 
 }
 .btn:focus,.btn:active {
@@ -93,4 +112,9 @@
   border-radius: 5px;
   font-weight: bold;
   height: 60px;
+}
+.btn-outline {
+    background-color: transparent;
+    color: #2D5E88;
+    transition: all .5s ease;
 }

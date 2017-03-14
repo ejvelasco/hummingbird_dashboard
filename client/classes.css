@@ -21,11 +21,32 @@
 }
 #classes-container{
 	/*text-align: center;*/
+	/*font-size: 1.1em;*/
 }
-#add{
-	background-color: #F8F8F8;
+.unclicked{
+	/*background-color: #F8F8F8;*/
+	transition: all .3s ease;
+	cursor: pointer;
+}
+.unclicked:hover{
+	color: #0E0B16;
+}
+.clicked{
+	background-color: white;
 }
 #new{
 	color: #0D5FB5;
 	text-align: center;
+}
+#classes-container input{
+	margin-top: 40px !important;
+}
+#classes-container input, #classes-container textarea{
+	width: 90%;
+	display: block;
+	padding: 10px;
+	margin: 0 auto;
+}
+#classes-container textarea{
+	height: 100px;
 }

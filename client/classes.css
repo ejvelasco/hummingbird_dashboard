@@ -46,7 +46,11 @@
 	display: block;
 	padding: 10px;
 	margin: 0 auto;
+	font-size: 1.2em;
 }
 #classes-container textarea{
 	height: 100px;
+}
+#create{
+	margin-left: 5%;
 }

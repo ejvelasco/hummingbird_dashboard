@@ -11,9 +11,11 @@ Accounts.onLogin(function(){
 	$('.navbar-default').css('filter', '');
 	$('#logo').removeClass('welcome');
 	$('#logo').addClass('home');
+	$('.navbar-default').css('background-color', '#F8F8F8');
 });
 Accounts.onLogout(function(){
 	Router.go('/');
 	$('#logo').removeClass('home');
 	$('#logo').addClass('welcome');
+	$('.navbar-default').css('background-color', 'transparent');
 });

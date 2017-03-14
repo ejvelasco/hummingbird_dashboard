@@ -17,7 +17,6 @@ Template.navigation.events({
 		$('#user-form').fadeIn('slow');
     $('.navbar-default').css('filter', 'brightness(.3)');
 		$('#welcome-container').css('filter', 'brightness(.3)');
-    $('#logo')
 	},
 	'click .dropdown-menu li .sign-out': function(event,template){
 		Meteor.logout();

@@ -2,7 +2,7 @@
 .navbar-nav li a {
     line-height: 80px;
     height: 80px;
-    padding: 25px;
+    padding: 30px;
     font-size: 1.3em;
     padding-top: 0;
     transition: all .4s ease;
@@ -13,9 +13,20 @@
    background-color: #EAEAEA !important;
 
 }
+.dropdown-menu li a{
+  height: 30px;
+  line-height: 30px;
+  font-size: .9em;
+  font-weight: bold;
+  text-align: center;
+}
+.dropdown-menu {
+  background-color: #F8F8F8;
+}
 #logo{
 	font-size: 1.5em;
 	font-weight: bold;
+  color: #428bca;
 }
 #sign-in{
 	position: relative;
@@ -25,7 +36,56 @@
 	padding-top: 10px;
 	padding-bottom: 10px;
 	font-weight: bold;
+  transition: all .3s ease;
+}
+.dropdown-menu li .sign-out:hover{
+  background-color: #FE8F9D !important;
+  color: white !important;
+
 }
 .btn:focus,.btn:active {
    outline: none !important;
+}
+#user-form{
+  display: none;
+  width: 25%;
+  margin: 0 auto;
+  border: 2px solid;
+  border-color: #EAEAEA;
+  color: #BABABA;
+  font-size: 1.3em;
+}
+#user-form input{
+  height: 60px;
+  border-radius: 0px;
+  font-size: 1.1em;
+  font-weight: lighter;
+}
+#user-form label{
+  display: none;
+}
+#user-form a{
+  color: #7BB5F1;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#user-form h3{
+  display: none;
+}
+#user-form button{
+  background-color: #428bca;
+  color: white;
+  border: none;
+  font-weight: bold;
+  transition: all .3s ease;
+  height: 60px;
+  border-radius: 5px;
+}
+#user-form button:hover{
+  background-color: #31699A;
+}
+#at-facebook{
+  border-radius: 5px;
+  font-weight: bold;
+  height: 60px;
 }

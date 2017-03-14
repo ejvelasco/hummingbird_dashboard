@@ -1,1 +1,19 @@
-/* CSS declarations go here */
+.navbar-brand,
+.navbar-nav li a {
+    line-height: 80px;
+    height: 80px;
+    padding: 25px;
+    font-size: 1.3em;
+    padding-top: 0;
+    transition: all .4s ease;
+    color: #0D5FB5 !important;
+}
+.navbar-nav li a:hover{
+   color: #1D82EC !important;
+   background-color: #EAEAEA !important;
+
+}
+#logo{
+	font-size: 1.5em;
+	font-weight: bold;
+}

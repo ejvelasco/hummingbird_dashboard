@@ -1,3 +1,25 @@
-<template name="classes">
-    <p>Here are your classes.</p>
+<template name = "classes">
+    <div id="classes-container">
+      <div class="row">
+            <div class="thumbnail" id = "add">
+              <div class="caption">
+                <p id="new"><span class="glyphicon glyphicon-plus"></span> &nbsp; Add a New Class </p>
+              </div>
+            </div>
+        </div>
+      {{#each class in classes}}
+        <div class="row">
+            <div class="thumbnail">
+              <div class="caption">
+                <a href="#"><span class="glyphicon glyphicon-remove"></span> &nbsp;Delete</a>
+                <a href="#"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Edit</a>
+                <h3>{{class.name}}</h3>
+                <p>{{class.desc}}</p>
+                <p class= "date">Created on: {{class.date}}</p> 
+                
+              </div>
+            </div>
+        </div>
+      {{/each}}
+    </div>
 </template>

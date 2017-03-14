@@ -1,0 +1,31 @@
+.thumbnail{
+	display: block;
+	width: 50%;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+.thumbnail p{
+	margin: 0 !important;
+
+	padding: 0 !important;
+}
+.date{
+	font-size: .9em;
+	color: #BABABA;
+}
+.thumbnail a{
+	display: inline-block;
+	float: right;
+	margin-right: 20px;
+	text-decoration: none; 
+}
+#classes-container{
+	/*text-align: center;*/
+}
+#add{
+	background-color: #F8F8F8;
+}
+#new{
+	color: #0D5FB5;
+	text-align: center;
+}

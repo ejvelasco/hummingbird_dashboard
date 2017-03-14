@@ -48,10 +48,15 @@
 }
 #user-form{
   display: none;
+  position: absolute;
+  left:0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
   width: 25%;
+  z-index: 9999;
+  background-color: white;
   margin: 0 auto;
-  border: 2px solid;
-  border-color: #EAEAEA;
   color: #BABABA;
   font-size: 1.3em;
 }

@@ -6,6 +6,7 @@ Template.navigation.helpers({
 Template.navigation.events({
 	'click #sign-in': function(event,template){
 		$('#user-form').fadeIn('slow');
+		$('#welcome-container').css('filter', 'brightness(.3)');
 	},
 	'click .dropdown-menu li .sign-out': function(event,template){
 		Meteor.logout();

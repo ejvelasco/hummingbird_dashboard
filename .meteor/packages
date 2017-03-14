@@ -30,3 +30,4 @@ useraccounts:bootstrap
 facebook-config-ui
 session
 less
+mrt:external-file-loader

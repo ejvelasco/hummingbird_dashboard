@@ -7,7 +7,7 @@ Template.welcome.events({
 	},
 })
 Accounts.onLogin(function(){
-	Router.go('/home-instructor');
+	// Router.go('/home-instructor');
 	$('.navbar-default').css('filter', '');
 	$('#logo').removeClass('welcome');
 	$('#logo').addClass('home');

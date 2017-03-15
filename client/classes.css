@@ -1,45 +1,51 @@
 .thumbnail{
 	display: block;
 	width: 50%;
+	height: 150px;
 	margin: 0 auto;
 	margin-top: 20px;
+	background-color: #F8F8F8;
 }
-.thumbnail p{
+/*.thumbnail p{
 	margin: 0 !important;
 
 	padding: 0 !important;
-}
+}*/
 .date{
 	font-size: .9em;
 	color: #BABABA;
 }
 .thumbnail a{
-	display: inline-block;
-	float: right;
-	margin-right: 20px;
-	text-decoration: none; 
+	position: relative;
+	text-decoration: none;
+	top: 0px;
+	left: 98%; 
+}
+.well a{
+	/*float: right;*/
+	position: relative;
+	text-decoration: none;
+	top: 0px;
+	left: 98%;
 }
 #classes-container{
+	width: 100%;
 	/*text-align: center;*/
 	/*font-size: 1.1em;*/
 }
-.unclicked{
-	/*background-color: #F8F8F8;*/
-	transition: all .3s ease;
+#new-class{
+	text-decoration: none;
 	cursor: pointer;
-}
-.unclicked:hover{
-	color: #0E0B16;
-}
-.clicked{
-	background-color: white;
-}
-#new{
-	color: #0D5FB5;
+	/*position: absolute;*/
+	display: block;
+	/*width: 100%;*/
 	text-align: center;
+	font-size: 1.5em;
+	padding-bottom: 10px;
 }
-#classes-container input{
-	margin-top: 40px !important;
+.well{
+	width: 50.5%;
+	margin: 0 auto;
 }
 #classes-container input, #classes-container textarea{
 	width: 90%;
@@ -48,9 +54,13 @@
 	margin: 0 auto;
 	font-size: 1.2em;
 }
+.well input, .well textarea{
+	margin-bottom: 20px !important;
+}
 #classes-container textarea{
 	height: 100px;
 }
-#create{
+#create, .update{
 	margin-left: 5%;
+	margin-bottom: 10px;
 }

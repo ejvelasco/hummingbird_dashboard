@@ -1,27 +1,53 @@
+var title, desc, classTitle, classDesc, parentId, grandParentObj, parentClass,id;
+
 Template.classes.helpers({
 	classes : function(){
-		return Classes.find({}).fetch();
+		return Classes.find({}, {sort: {dateParsed: -1}}).fetch();
 
 	}
 });
 Template.classes.events({
-	'click #add': function(){
-		$('#add').animate({height: '300px'}, 200, function(){
-			setTimeout(function(){
-				$('#add').text('');
-			$('#add').append('<div class="caption"><a href="#"><span class="glyphicon glyphicon-remove"></span></a><input id="class-title" type="text" placeholder="Class Title"></input></br><textarea id="class-desc" placeholder="Class Description"></textarea></br><button id="create" type="button" class="btn btn-primary" onclick="this.blur();"><span class="glyphicon glyphicon-plus"></span> &nbsp;Create</button></div>');
-			}, 200);
-			setTimeout(function(){
-				$('#add').removeClass('unclicked');
-				$('#add').addClass('clicked');
-				$('#add').removeAttr('id');
-			},400);
+	'click #create': function(){
+		title = $('.class-title-create').val();
+		desc =  $('.class-desc-create').val();
+		$('.collapse').collapse('hide');
+		Classes.insert({title: title, desc: desc, date: new Date(), dateParsed:  Date.parse(new Date()) });	
+	},
+	'click .edit': function(event){
+		parentId = '#'+(event.currentTarget.parentNode).parentNode.getAttribute('id');
+		parentClass = '.'+event.currentTarget.parentNode.getAttribute('class');
+		classTitle = $(parentClass+' .title').text();
+		classDesc = $(parentClass+' .desc').text();
+		$(parentId).animate({height: '300px'}, 200 , function(){
+			$(parentId).text('');
+			$(parentId).append('<div class="caption"><a href="#" class="discard-edit"><span class="glyphicon glyphicon-remove"></span></a><input class="class-title" type="text" placeholder="'+classTitle+'" value="'+classTitle+'"></input></br><textarea placeholder="'+classDesc+'" class="class-desc">'+classDesc+'</textarea></br><button type="button" class="btn btn-primary update" onclick="this.blur();"><span class="glyphicon glyphicon-ok"></span> &nbsp;Update</button></div>');	
 		});
 	},
-	'click #create': function(){
-		var title = $('#class-title').val();
-		var desc =  $('#class-desc').val();
-		Classes.insert({title: title, desc: desc, date:  new Date() });	
+	'click .discard-edit': function(){
+		$(parentId).animate({height: '150px'}, 200 , function(){
+			$(parentId).text('');
+			$(parentId).append('<div class="caption"><a href="#" class="delete"><span class="glyphicon glyphicon-remove"></span></a><a href="#" class="edit"><span class="glyphicon glyphicon-pencil"></span></a><h3 class="title">'+classTitle+'</h3><p class="desc">'+classDesc+'</p><p class= "date">'+'Updated on'+new Date()+'</p> </div>');	
+		});
+	},
+	'click .delete': function(event){
+		parentId = '#'+(event.currentTarget.parentNode).parentNode.getAttribute('id');
+		grandParentObj = $(parentId).parent();
+		$(grandParentObj).animate({opacity: 0, height: 0}, 400, function(){
+			id = parentId.replace(/#/g, '');
+			Classes.remove({_id: id});
+		});	
+	},
+	'click .update': function(event){
+		parentId = '#'+(event.currentTarget.parentNode).parentNode.getAttribute('id');
+		parentClass = '.'+event.currentTarget.parentNode.getAttribute('class');
+		classTitle = $(parentId+' .class-title').val();
+		classDesc = $(parentId+' .class-desc').val();
+		$(parentId).animate({height: '150px'}, 200 , function(){
+			$(parentId).text('');
+			$(parentId).append('<div class="caption"><a href="#" class="delete"><span class="glyphicon glyphicon-remove"></span></a><a href="#" class="edit"><span class="glyphicon glyphicon-pencil"></span></a><h3 class="title">'+classTitle+'</h3><p class="desc">'+classDesc+'</p><p class= "date">'+'Updated on'+new Date()+'</p> </div>');	
+		});
+		id = parentId.replace(/#/g, '');
+		Classes.update({_id: id}, { $set: {title: classTitle, desc: classDesc, updated: new Date() } });
 	}
-})
+});
  

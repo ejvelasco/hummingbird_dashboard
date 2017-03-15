@@ -1,22 +1,25 @@
 <template name = "classes">
     <div id="classes-container">
-      <div class="row">
-            <div class="thumbnail unclicked" id = "add">
-              <div class="caption">
-                <p id="new"><span class="glyphicon glyphicon-plus"></span> &nbsp; New Class</p>
-              </div>
-            </div>
+      <a onclick="this.blur();" id="new-class" data-toggle="collapse" href="#create-container" aria-expanded="false" aria-controls="create-container"><span class="glyphicon glyphicon-plus"></span> &nbsp; New Class</a>
+      <div  class="collapse" id="create-container">
+        <div class="well">
+          <div class="caption">
+            <a href="#" class="discard-create"><span class="glyphicon glyphicon-remove"></span></a>
+            <input class="class-title-create" type="text" placeholder="Class Title">
+            <textarea class="class-desc-create" placeholder="Class Description"></textarea>
+            <button id="create" type="button" class="btn btn-primary" onclick="this.blur();"><span class="glyphicon glyphicon-plus"></span> &nbsp;Create</button>
+          </div>
         </div>
+      </div>
       {{#each class in classes}}
         <div class="row">
-            <div class="thumbnail">
+            <div class="thumbnail" id='{{class._id}}'>
               <div class="caption">
-                <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
-                <a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
-                <h3>{{class.title}}</h3>
-                <p>{{class.desc}}</p>
+                <a href="#" class="delete"><span class="glyphicon glyphicon-remove"></span></a>
+                <a href="#" class="edit"><span class="glyphicon glyphicon-pencil"></span></a>
+                <h3 class="title">{{class.title}}</h3>
+                <p class="desc">{{class.desc}}</p>
                 <p class= "date">Created on: {{class.date}}</p> 
-                
               </div>
             </div>
         </div>

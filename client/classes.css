@@ -49,7 +49,7 @@
 	margin: 0 auto;
 }
 #classes-container input, #classes-container textarea{
-	width: 90%;
+	width: 80%;
 	display: block;
 	padding: 10px;
 	margin: 0 auto;
@@ -63,9 +63,12 @@
 .caption p{
 	margin-bottom: 0 !important;
 	padding: 0 !important;
+	width: 80%;
+	margin: 0 auto;
 }
 .caption .date{
 	margin-top: 20px;
+	margin-bottom: 10px !important;
 }
 .caption .title{
 	font-size: 1.8em;
@@ -82,6 +85,6 @@
 	height: 100px;
 }
 #create, .update{
-	margin-left: 5%;
+	margin-left: 10%;
 	margin-bottom: 10px;
 }

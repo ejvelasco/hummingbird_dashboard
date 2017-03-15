@@ -32,7 +32,7 @@ Template.classes.events({
 		});
 	},
 	'click .discard-edit': function(){
-		$(parentId).animate({height: '150px'}, 200 , function(){
+		$(parentId).animate({height: originalHeight+10}, 200 , function(){
 			$(parentId).text('');
 			$(parentId).append('<div class="caption"><a href="#" class="delete"><span class="glyphicon glyphicon-remove"></span></a><a href="#" class="edit"><span class="glyphicon glyphicon-pencil"></span></a><p class="title">'+classTitle+'</p><p class="desc">'+classDesc+'</p><p class= "date">'+date+'</p> </div>');	
 		});

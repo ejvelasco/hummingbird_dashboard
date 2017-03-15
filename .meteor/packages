@@ -30,3 +30,4 @@ session
 less
 mrt:external-file-loader
 alethes:pages
+useraccounts:iron-routing

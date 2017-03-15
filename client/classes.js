@@ -13,6 +13,11 @@ Template.classes.events({
 		$('.collapse').collapse('hide');
 		Classes.insert({title: title, desc: desc, date: new Date(), dateParsed:  Date.parse(new Date()) });	
 	},
+	'click .discard-create': function(){
+		$('.collapse').collapse('hide');
+		$('.class-title-create').val('');
+		$('.class-desc-create').val('');
+	},
 	'click .edit': function(event){
 		parentId = '#'+(event.currentTarget.parentNode).parentNode.getAttribute('id');
 		parentClass = '.'+event.currentTarget.parentNode.getAttribute('class');
@@ -27,7 +32,7 @@ Template.classes.events({
 	'click .discard-edit': function(){
 		$(parentId).animate({height: '150px'}, 200 , function(){
 			$(parentId).text('');
-			$(parentId).append('<div class="caption"><a href="#" class="delete"><span class="glyphicon glyphicon-remove"></span></a><a href="#" class="edit"><span class="glyphicon glyphicon-pencil"></span></a><h3 class="title">'+classTitle+'</h3><p class="desc">'+classDesc+'</p><p class= "date">'+date+'</p> </div>');	
+			$(parentId).append('<div class="caption"><a href="#" class="delete"><span class="glyphicon glyphicon-remove"></span></a><a href="#" class="edit"><span class="glyphicon glyphicon-pencil"></span></a><p class="title">'+classTitle+'</p><p class="desc">'+classDesc+'</p><p class= "date">'+date+'</p> </div>');	
 		});
 	},
 	'click .delete': function(event){
@@ -45,7 +50,7 @@ Template.classes.events({
 		classDesc = $(parentId+' .class-desc').val();
 		$(parentId).animate({height: '150px'}, 200 , function(){
 			$(parentId).text('');
-			$(parentId).append('<div class="caption"><a href="#" class="delete"><span class="glyphicon glyphicon-remove"></span></a><a href="#" class="edit"><span class="glyphicon glyphicon-pencil"></span></a><h3 class="title">'+classTitle+'</h3><p class="desc">'+classDesc+'</p><p class= "date">'+'Updated on '+new Date()+'</p> </div>');	
+			$(parentId).append('<div class="caption"><a href="#" class="delete"><span class="glyphicon glyphicon-remove"></span></a><a href="#" class="edit"><span class="glyphicon glyphicon-pencil"></span></a><p class="title">'+classTitle+'</p><p class="desc">'+classDesc+'</p><p class= "date">'+'Updated on '+new Date()+'</p> </div>');	
 		});
 		id = parentId.replace(/#/g, '');
 		Classes.update({_id: id}, { $set: {title: classTitle, desc: classDesc, updated: new Date() } });

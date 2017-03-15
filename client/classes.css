@@ -1,7 +1,7 @@
 .thumbnail{
 	display: block;
 	width: 50%;
-	height: 150px;
+	/*height: 150px;*/
 	margin: 0 auto;
 	margin-top: 20px;
 	background-color: #F8F8F8;
@@ -19,7 +19,8 @@
 	position: relative;
 	text-decoration: none;
 	top: 0px;
-	left: 98%; 
+	left: 95%; 
+	margin-right: 15px;
 }
 .well a{
 	/*float: right;*/
@@ -53,6 +54,26 @@
 	padding: 10px;
 	margin: 0 auto;
 	font-size: 1.2em;
+}
+.caption{
+	width: 95%;
+	margin: 0 auto;
+
+}
+.caption p{
+	margin-bottom: 0 !important;
+	padding: 0 !important;
+}
+.caption .date{
+	margin-top: 20px;
+}
+.caption .title{
+	font-size: 1.8em;
+	font-weight: bold;
+	border-bottom: solid 1px;
+}
+.caption .desc{
+	margin-top: 15px;
 }
 .well input, .well textarea{
 	margin-bottom: 20px !important;

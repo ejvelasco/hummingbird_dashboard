@@ -1,5 +1,9 @@
 var classTitle, classDesc, parentId, grandParentObj, parentClass,id, date, classInfo, originalHeight;
 
+Template.classes.onCreated(function classesOnCreated() {
+  Meteor.subscribe('classes');
+});
+
 Template.classes.helpers({
 	classes : function(){
 		return Classes.find({}, {sort: {dateParsed: -1}}).fetch();

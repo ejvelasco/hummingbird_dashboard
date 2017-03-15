@@ -4,7 +4,6 @@
 	/*height: 150px;*/
 	margin: 0 auto;
 	margin-top: 20px;
-	background-color: #F8F8F8;
 }
 /*.thumbnail p{
 	margin: 0 !important;
@@ -41,8 +40,11 @@
 	display: block;
 	/*width: 100%;*/
 	text-align: center;
-	font-size: 1.5em;
+	font-weight: bold;
+	font-size: 1.7em;
+	padding-top: 10px;
 	padding-bottom: 10px;
+	transition: all.3s ease;
 }
 .well{
 	width: 50.5%;
@@ -71,7 +73,7 @@
 	margin-bottom: 10px !important;
 }
 .caption .title{
-	font-size: 1.8em;
+	font-size: 1.7em;
 	font-weight: bold;
 	border-bottom: solid 1px;
 }
@@ -86,5 +88,6 @@
 }
 #create, .update{
 	margin-left: 10%;
+	margin-top: 10px;
 	margin-bottom: 10px;
 }

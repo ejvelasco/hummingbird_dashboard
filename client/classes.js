@@ -1,4 +1,4 @@
-var title, desc, classTitle, classDesc, parentId, grandParentObj, parentClass,id, date;
+var classTitle, classDesc, parentId, grandParentObj, parentClass,id, date, classInfo, originalHeight;
 
 Template.classes.helpers({
 	classes : function(){
@@ -8,10 +8,10 @@ Template.classes.helpers({
 });
 Template.classes.events({
 	'click #create': function(){
-		title = $('.class-title-create').val();
-		desc =  $('.class-desc-create').val();
+		classTitle = $('.class-title-create').val();
+		classDesc =  $('.class-desc-create').val();
 		$('.collapse').collapse('hide');
-		Classes.insert({title: title, desc: desc, date: new Date(), dateParsed:  Date.parse(new Date()) });	
+		Meteor.call('Classes.insert', {title: classTitle, desc: classDesc, date: new Date(), dateParsed:  Date.parse(new Date()) })
 	},
 	'click .discard-create': function(){
 		$('.collapse').collapse('hide');
@@ -24,6 +24,8 @@ Template.classes.events({
 		classTitle = $(parentId+' .title').text();
 		classDesc = $(parentId+' .desc').text();
 		date = $(parentId+' .date').text();
+		originalHeight = $(parentId).height();
+		console.log(originalHeight);
 		$(parentId).animate({height: '300px'}, 200 , function(){
 			$(parentId).text('');
 			$(parentId).append('<div class="caption"><a href="#" class="discard-edit"><span class="glyphicon glyphicon-remove"></span></a><input class="class-title" type="text" placeholder="'+classTitle+'" value="'+classTitle+'"></input></br><textarea placeholder="'+classDesc+'" class="class-desc">'+classDesc+'</textarea></br><button type="button" class="btn btn-primary update" onclick="this.blur();"><span class="glyphicon glyphicon-ok"></span> &nbsp;Update</button></div>');	
@@ -40,7 +42,7 @@ Template.classes.events({
 		grandParentObj = $(parentId).parent();
 		$(grandParentObj).animate({opacity: 0, height: 0}, 400, function(){
 			id = parentId.replace(/#/g, '');
-			Classes.remove({_id: id});
+			Meteor.call('Classes.remove', id);
 		});	
 	},
 	'click .update': function(event){
@@ -48,12 +50,17 @@ Template.classes.events({
 		parentClass = '.'+event.currentTarget.parentNode.getAttribute('class');
 		classTitle = $(parentId+' .class-title').val();
 		classDesc = $(parentId+' .class-desc').val();
-		$(parentId).animate({height: '150px'}, 200 , function(){
+		$(parentId).animate({height: originalHeight+10}, 200 , function(){
 			$(parentId).text('');
 			$(parentId).append('<div class="caption"><a href="#" class="delete"><span class="glyphicon glyphicon-remove"></span></a><a href="#" class="edit"><span class="glyphicon glyphicon-pencil"></span></a><p class="title">'+classTitle+'</p><p class="desc">'+classDesc+'</p><p class= "date">'+'Updated on '+new Date()+'</p> </div>');	
 		});
 		id = parentId.replace(/#/g, '');
-		Classes.update({_id: id}, { $set: {title: classTitle, desc: classDesc, updated: new Date() } });
+		classInfo = {
+			id: id, 
+			info: {title: classTitle, desc: classDesc}
+		}  
+		Meteor.call('Classes.update', classInfo);
+			// {_id: id}, { $set: {title: classTitle, desc: classDesc, updated: new Date() } });
 	}
 });
  

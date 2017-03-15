@@ -19,7 +19,11 @@
                 <a href="#" class="edit"><span class="glyphicon glyphicon-pencil"></span></a>
                 <p class="title">{{class.title}}</p>
                 <p class="desc">{{class.desc}}</p>
-                <p class= "date">Created on: {{class.date}}</p> 
+                {{#if class.updated}}
+                  <p class= "date">Updated on: {{class.updated}}</p>
+                {{else}}
+                  <p class= "date">Created on: {{class.date}}</p> 
+                {{/if}}
               </div>
             </div>
         </div>

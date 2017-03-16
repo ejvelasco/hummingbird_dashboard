@@ -1,0 +1,14 @@
+#new-lecture{
+	position: relative;
+	right: 10%;
+}
+.lectures-title{
+	display: inline-block;
+	width: 80%;
+	font-size: 1.8em;
+	font-weight: bold;
+	padding: 10px;
+	padding-left: 30px;
+	margin-left: 5%;
+	border-bottom: solid 1px;
+}

@@ -1,0 +1,14 @@
+<template name="lectures">
+    <p class = "lectures-title">{{ classObj.title }} - Lectures</p>
+    <a onclick="this.blur();" id="new-lecture" data-toggle="collapse" href="#lecture-create" aria-expanded="false" aria-controls="lecture-create"><span class="glyphicon glyphicon-plus"></span> &nbsp; New Lecture</a>
+    <div  class="collapse" id="lecture-create">
+      <div class="well">
+        <div class="caption">
+          <a href="#" class="discard-create"><span class="glyphicon glyphicon-remove"></span></a>
+          <input class="lecture-title-create" type="text" placeholder="Lecture Title">
+          <textarea class="Lecture-desc-create" placeholder="Lecture Description"></textarea>
+          <button id="create-lecture" type="button" class="btn btn-primary" onclick="this.blur();"><span class="glyphicon glyphicon-plus"></span> &nbsp;Add</button>
+        </div>
+      </div>
+    </div>
+</template>

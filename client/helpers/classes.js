@@ -32,7 +32,7 @@ Template.classes.events({
 		console.log(originalHeight);
 		$(parentId).animate({height: '300px'}, 200 , function(){
 			$(parentId).text('');
-			$(parentId).append('<div class="caption"><a href="#" class="discard-edit"><span class="glyphicon glyphicon-remove"></span></a><input class="class-title" type="text" placeholder="'+classTitle+'" value="'+classTitle+'"></input></br><textarea placeholder="'+classDesc+'" class="class-desc">'+classDesc+'</textarea></br><button type="button" class="btn btn-primary update" onclick="this.blur();"><span class="glyphicon glyphicon-ok"></span> &nbsp;Update</button></div>');	
+			$(parentId).append('<div class="caption"><a href="#" class="discard-edit"><span class="glyphicon glyphicon-remove"></span></a><input class="class-title" type="text" placeholder="Class Title" value="'+classTitle+'"></input></br><textarea placeholder="Class Description" class="class-desc">'+classDesc+'</textarea></br><button type="button" class="btn btn-primary update" onclick="this.blur();"><span class="glyphicon glyphicon-ok"></span> &nbsp;Update</button></div>');	
 		});
 	},
 	'click .discard-edit': function(){
@@ -65,9 +65,9 @@ Template.classes.events({
 		}  
 		Meteor.call('Classes.update', classInfo);
 	}, 
-	'click .thumbnail': function(event){
-		parentId = event.currentTarget.getAttribute('id');
-		window.location = '/'+parentId+'/lectures';
+	'click .caption .title': function(event){
+		parentId = (event.currentTarget.parentNode).parentNode.getAttribute('id');
+		Router.go('/'+parentId+'/lectures');
 	}
 });
  

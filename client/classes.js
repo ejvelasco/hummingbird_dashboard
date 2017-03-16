@@ -64,7 +64,10 @@ Template.classes.events({
 			info: {title: classTitle, desc: classDesc}
 		}  
 		Meteor.call('Classes.update', classInfo);
-			// {_id: id}, { $set: {title: classTitle, desc: classDesc, updated: new Date() } });
+	}, 
+	'click .thumbnail': function(event){
+		parentId = event.currentTarget.getAttribute('id');
+		window.location = '/'+parentId+'/lectures';
 	}
 });
  

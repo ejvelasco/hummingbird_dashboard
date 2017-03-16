@@ -10,6 +10,9 @@
 
 	padding: 0 !important;
 }*/
+.thumbnail:hover{
+	background-color: #F8F8F8;
+}
 .date{
 	font-size: .9em;
 	color: #BABABA;

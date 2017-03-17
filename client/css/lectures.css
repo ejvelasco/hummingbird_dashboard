@@ -57,3 +57,7 @@
 #edit-lecture{
 	display: none;
 }
+.lecture-date{
+	float: right;
+	text-decoration: none !important;
+}

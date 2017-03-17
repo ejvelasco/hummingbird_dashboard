@@ -14,13 +14,19 @@ Template.classes.events({
 	'click #create': function(){
 		classTitle = $('.class-title-create').val();
 		classDesc =  $('.class-desc-create').val();
+		Meteor.call('Classes.insert', {title: classTitle, desc: classDesc, date: new Date(), dateParsed:  Date.parse(new Date()), lectures: 0 });
 		$('.collapse').collapse('hide');
-		Meteor.call('Classes.insert', {title: classTitle, desc: classDesc, date: new Date(), dateParsed:  Date.parse(new Date()) })
+		setTimeout(function(){
+			$('.class-title-create').val('');
+			$('.class-desc-create').val('');
+		},500);
 	},
 	'click .discard-create': function(){
 		$('.collapse').collapse('hide');
-		$('.class-title-create').val('');
-		$('.class-desc-create').val('');
+		setTimeout(function(){
+			$('.class-title-create').val('');
+			$('.class-desc-create').val('');
+		},500);
 	},
 	'click .edit': function(event){
 		parentId = '#'+(event.currentTarget.parentNode).parentNode.getAttribute('id');

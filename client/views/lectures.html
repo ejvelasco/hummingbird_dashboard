@@ -1,14 +1,47 @@
 <template name="lectures">
+  <div id = "lectures-container">
     <p class = "lectures-title">{{ classObj.title }} - Lectures</p>
     <a onclick="this.blur();" id="new-lecture" data-toggle="collapse" href="#lecture-create" aria-expanded="false" aria-controls="lecture-create"><span class="glyphicon glyphicon-plus"></span> &nbsp; New Lecture</a>
     <div  class="collapse" id="lecture-create">
-      <div class="well">
+      <div id="lecture-create-container">
         <div class="caption">
           <a href="#" class="discard-create"><span class="glyphicon glyphicon-remove"></span></a>
           <input class="lecture-title-create" type="text" placeholder="Lecture Title">
-          <textarea class="Lecture-desc-create" placeholder="Lecture Description"></textarea>
+          <textarea class="lecture-desc-create" placeholder="Lecture Description"></textarea>
+          {{>calendar}}
           <button id="create-lecture" type="button" class="btn btn-primary" onclick="this.blur();"><span class="glyphicon glyphicon-plus"></span> &nbsp;Add</button>
         </div>
       </div>
     </div>
+    {{#each lecture in lectures}}
+      <div class="row">
+          <div class="thumbnail" id='{{lecture._id}}'>
+            <div class="caption">
+              <a href="#" class="delete control"><span class="glyphicon glyphicon-remove"></span></a>
+              <a href="#" class="edit control"><span class="glyphicon glyphicon-pencil"></span></a>
+              <p class="title">{{lecture.title}} &nbsp;&nbsp;&nbsp; {{lecture.date}}</p>
+              <p class="desc">{{lecture.desc}}</p>
+              {{#if lecture.updated}}
+                <p class= "date">Updated on: {{lecture.updated}}</p>
+              {{else}}
+                <p class= "date">Created on: {{lecture.created}}</p> 
+              {{/if}}
+            </div>
+          </div>
+      </div>
+    {{/each}}
+    <div>
+      <div class="row" id="edit-lecture">
+          <div class="thumbnail">
+            <div class="caption">
+              <a href="#" class="delete"><span class="glyphicon glyphicon-remove"></span></a>
+              <input class="lecture-title-create" type="text" placeholder="Lecture Title">
+              <textarea class="lecture-desc-create" placeholder="Lecture Description"></textarea>
+              {{>calendar}}
+              <button id="update-lecture" type="button" class="btn btn-primary" onclick="this.blur();"><span class="glyphicon glyphicon-ok"></span> &nbsp;Add</button>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
 </template>

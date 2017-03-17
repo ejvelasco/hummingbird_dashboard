@@ -17,7 +17,7 @@
 	font-size: .9em;
 	color: #BABABA;
 }
-.thumbnail a{
+.thumbnail .control{
 	position: relative;
 	text-decoration: none;
 	top: 0px;
@@ -79,6 +79,10 @@
 	font-size: 1.7em;
 	font-weight: bold;
 	border-bottom: solid 1px;
+	transition: all .3s ease;
+}
+.caption .title:hover{
+	color: #BABABA;
 }
 .caption .desc{
 	margin-top: 15px;
@@ -94,6 +98,17 @@
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
+
 .thumbnail{
 	cursor: pointer;
+}
+.lecture-count{
+	font-size: .5em !important;
+	padding: 10px;
+	text-decoration: none !important;
+	margin-right: 5px;
+	letter-spacing: 3px;
+}
+.small-icon{
+	transform: scale(.8);
 }

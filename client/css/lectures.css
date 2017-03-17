@@ -1,6 +1,16 @@
 #new-lecture{
 	position: relative;
 	right: 10%;
+	text-decoration: none;
+	transition: all .3s ease;
+	font-size: 1.2em;
+}
+.datepicker-days{
+	margin-left: 20px;
+}
+.form-control{
+	width: 10%;
+	margin: 0 auto;
 }
 .lectures-title{
 	display: inline-block;
@@ -9,6 +19,41 @@
 	font-weight: bold;
 	padding: 10px;
 	padding-left: 30px;
-	margin-left: 5%;
+	margin: 0 auto;
+	margin-left: 10%;
 	border-bottom: solid 1px;
+}
+#lecture-create-container{
+	width: 80%;
+	background-color: #F8F8F8;
+	margin: 0 auto;
+}
+.discard-create{
+	position: relative;
+	left: 95%;
+	padding: 10px;
+	padding-top:15px;
+	display: block;
+}
+.calendar-container{
+	margin-left: 10% !important;
+}
+.lecture-title-create, .lecture-desc-create{
+	width: 80%;
+	display: block;
+	padding: 10px;
+	margin: 0 auto;
+	font-size: 1.2em;
+	margin-bottom: 8px !important;
+}
+.calendar-container{
+	margin-bottom: 8px;	
+}
+#create-lecture, #update-lecture{
+	margin-left: 10%;
+	margin-top: 20px;
+	margin-bottom: 30px !important;
+}
+#edit-lecture{
+	display: none;
 }

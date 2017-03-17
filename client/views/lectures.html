@@ -1,15 +1,16 @@
 <template name="lectures">
   <div id = "lectures-container">
     <p class = "lectures-title">{{ classObj.title }} - Lectures</p>
-    <a onclick="this.blur();" id="new-lecture" data-toggle="collapse" href="#lecture-create" aria-expanded="false" aria-controls="lecture-create"><span class="glyphicon glyphicon-plus"></span> &nbsp; New Lecture</a>
+    <a onclick="this.blur();" id="new-lecture" data-toggle="collapse" href="#lecture-create" aria-expanded="false" aria-controls="lecture-create"><span class="glyphicon glyphicon-plus"></span> &nbsp; New Lecture Page</a>
     <div  class="collapse" id="lecture-create">
       <div id="lecture-create-container">
         <div class="caption">
           <a href="#" class="discard-create"><span class="glyphicon glyphicon-remove"></span></a>
           <input class="lecture-title-create" type="text" placeholder="Lecture Title">
           <textarea class="lecture-desc-create" placeholder="Lecture Description"></textarea>
+          <!-- <label for="url-input">The Question Page's unique URL will be: http://localhost:3000/{{classObj.title}}/ </label><input id = "url-input" class="lecture-url-create" type="text" placeholder="Question Page URL"> -->
           {{>calendar}}
-          <button id="create-lecture" type="button" class="btn btn-primary" onclick="this.blur();"><span class="glyphicon glyphicon-plus"></span> &nbsp;Add</button>
+          <button id="create-lecture" type="button" class="btn btn-primary" onclick="this.blur();"><span class="glyphicon glyphicon-plus"></span> &nbsp;Launch</button>
         </div>
       </div>
     </div>
@@ -19,13 +20,14 @@
             <div class="caption">
               <a href="#" class="delete control"><span class="glyphicon glyphicon-remove"></span></a>
               <a href="#" class="edit control"><span class="glyphicon glyphicon-pencil"></span></a>
-              <p class="title">{{lecture.title}} &nbsp;&nbsp;&nbsp; <a class = 'lecture-date'>{{lecture.date}}</a></p>
+              <p class="title">{{lecture.title}} &nbsp;&nbsp;&nbsp; <a class = 'lecture-date'>Date: {{lecture.date}}</a></p>
               <p class="desc">{{lecture.desc}}</p>
-              {{#if lecture.updated}}
+              <p class="url">Question Page URL: {{lecture.url}}</p>
+              <!-- {{#if lecture.updated}}
                 <p class= "date">Updated on: {{lecture.updated}}</p>
               {{else}}
                 <p class= "date">Created on: {{lecture.created}}</p> 
-              {{/if}}
+              {{/if}} -->
             </div>
           </div>
       </div>
@@ -34,14 +36,15 @@
       <div class="row" id="edit-lecture">
           <div class="thumbnail">
             <div class="caption">
-              <a href="#" class="delete"><span class="glyphicon glyphicon-remove"></span></a>
-              <input class="lecture-title-create" type="text" placeholder="Lecture Title">
-              <textarea class="lecture-desc-create" placeholder="Lecture Description"></textarea>
+              <a href="#" class="delete control" id="discard-edit-lecture"><span class="glyphicon glyphicon-remove"></span></a>
+              <input class="lecture-title-edit" type="text" placeholder="Lecture Title">
+              <textarea class="lecture-desc-edit" placeholder="Lecture Description"></textarea>
               {{>calendar}}
-              <button id="update-lecture" type="button" class="btn btn-primary" onclick="this.blur();"><span class="glyphicon glyphicon-ok"></span> &nbsp;Add</button>
+              <button id="update-lecture" type="button" class="btn btn-primary" onclick="this.blur();"><span class="glyphicon glyphicon-ok"></span> &nbsp;Update</button>
             </div>
           </div>
       </div>
     </div>
+  <div class = "mask"></div>
   </div>
 </template>

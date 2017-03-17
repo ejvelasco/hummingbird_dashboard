@@ -5,12 +5,31 @@
 	transition: all .3s ease;
 	font-size: 1.2em;
 }
+body {
+	overflow-x: hidden;
+}
+.mask{
+	display: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: black;
+	opacity: .7;
+	z-index: 1;
+}
 .datepicker-days{
 	margin-left: 20px;
 }
-.form-control{
-	width: 10%;
-	margin: 0 auto;
+.date-picker{
+	width: 120px;
+	/*margin: 0 auto;*/
+	display: block;
+	border-color: #BABABA;
+	font-size: 1.2em;
+	padding: 10px; 
+	border-radius: 0px;
 }
 .lectures-title{
 	display: inline-block;
@@ -38,13 +57,25 @@
 .calendar-container{
 	margin-left: 10% !important;
 }
-.lecture-title-create, .lecture-desc-create{
+.lecture-title-create, .lecture-desc-create, .lecture-url-create, .lecture-title-edit, .lecture-desc-edit{
 	width: 80%;
 	display: block;
 	padding: 10px;
 	margin: 0 auto;
 	font-size: 1.2em;
-	margin-bottom: 8px !important;
+	/*margin-top: */
+	margin-bottom: 20px !important;
+}
+.lecture-url-create{
+	/*float: right;*/
+	display: inline-block;
+	width: 30%;
+}
+label{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left:  10%;
+	font-size: 1.2em;
 }
 .calendar-container{
 	margin-bottom: 8px;	
@@ -52,12 +83,26 @@
 #create-lecture, #update-lecture{
 	margin-left: 10%;
 	margin-top: 20px;
-	margin-bottom: 30px !important;
+	margin-bottom: 20px !important;
 }
 #edit-lecture{
 	display: none;
+	/*position: absolute;*/
+	z-index: 9999;
+	position: fixed;
+	right: 0;
+	left: 0;
+	margin: 0 auto;
+	width: 100%;
+	top: 30%;
 }
 .lecture-date{
 	float: right;
 	text-decoration: none !important;
+	font-size: .7em;
+	letter-spacing: 3px;
+}
+.caption .url{
+	font-size: 1em;
+	margin-top: 10px;
 }

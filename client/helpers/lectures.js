@@ -1,4 +1,4 @@
-var lectureTitle, lectureDesc, classObj, dateEntered;
+var lectureTitle, lectureDesc, classObj, dateEntered, parentClasses, lectureId;
 Template.lectures.onCreated(function lecturesOnCreated() {
   Meteor.subscribe('classes');
   Meteor.subscribe('lectures');
@@ -35,21 +35,6 @@ Template.lectures.events({
 			$('#date-picker').val('');	
 		}, 500);
 	},
-	'click .edit': function(event){
-		parentId = '#'+(event.currentTarget.parentNode).parentNode.getAttribute('id');
-		parentClass = '.'+event.currentTarget.parentNode.getAttribute('class');
-		lectureTitle = $(parentId+' .title').text();
-		lectureDesc = $(parentId+' .desc').text();
-		date = $(parentId+' .date').text();
-		// dateEntered = $('#date-picker');
-		originalHeight = $(parentId).height();
-		// console.log(parentId,parentClass, lectureTitle, lectureDesc, dateEntered);
-		// console.log(originalHeight);
-		// $(parentId).animate({height: '300px'}, 200 , function(){
-		// 	$(parentId).text('');
-		// 	$(parentId).append('<div class="caption"><a href="#" class="discard-edit"><span class="glyphicon glyphicon-remove"></span></a><input class="class-title" type="text" placeholder="Class Title" value="'+classTitle+'"></input></br><textarea placeholder="Class Description" class="class-desc">'+classDesc+'</textarea></br><button type="button" class="btn btn-primary update" onclick="this.blur();"><span class="glyphicon glyphicon-ok"></span> &nbsp;Update</button></div>');	
-		// });
-	},
 	'click .delete': function(event){
 		parentId = '#'+(event.currentTarget.parentNode).parentNode.getAttribute('id');
 		grandParentObj = $(parentId).parent();
@@ -60,6 +45,39 @@ Template.lectures.events({
 		});	
 	},
 	'click .edit': function(event){
-		$('#edit-lecture').fadeIn('slow');
+		parentId = '#'+(event.currentTarget.parentNode).parentNode.getAttribute('id');
+		lectureTitle = $(parentId + '.thumbnail .title').text();
+		lectureDesc =  $(parentId + '.thumbnail .desc').text();
+		lectureDate = $(parentId + '.thumbnail .lecture-date').text();
+
+		lectureDate = lectureDate.replace('Date: ', '');
+		lectureTitle = lectureTitle.substring(0, lectureTitle.indexOf('Date:'));
+		lectureTitle = lectureTitle.replace(/\s+$/, '');
+		$('.lecture-title-edit').val(lectureTitle);
+		$('.lecture-desc-edit').val(lectureDesc);
+		$('#edit-lecture .date-picker').val(lectureDate);
+		$('#edit-lecture, .mask').fadeIn(300);
+		$('#edit-lecture .thumbnail').addClass(parentId);
+		// $('body').css('filter', 'brightness(.8)');
+	},
+	'click #discard-edit-lecture': function(event){
+		$('#edit-lecture, .mask').fadeOut(300);
+		setTimeout(function(){
+			$('.lecture-title-edit').val('');
+			$('.lecture-desc-edit').val('');
+		}, 500);
+	}, 
+	'click #update-lecture': function(event){
+		parentClasses = $(event.currentTarget.parentNode.parentNode).attr("class").split(' ');
+		lectureId = parentClasses[1].replace('#', '');
+		lectureTitle = $('.thumbnail .lecture-title-edit').val();
+		lectureDesc =  $('.thumbnail .lecture-desc-edit').val();
+		lectureDate = $('.thumbnail .date-picker').val();
+		Meteor.call('Lectures.update', {id: lectureId, infoToUpdate: {title: lectureTitle, desc: lectureDesc, date: lectureDate}});	
+		$('#edit-lecture, .mask').fadeOut(300);
+		setTimeout(function(){
+			$('.lecture-title-edit').val('');
+			$('.lecture-desc-edit').val('');
+		}, 500);
 	}
-})
+});

@@ -103,10 +103,11 @@
 	cursor: pointer;
 }
 .lecture-count{
+	float: right;
 	font-size: .5em !important;
 	padding: 10px;
 	text-decoration: none !important;
-	margin-right: 5px;
+	/*margin-right: 5px;*/
 	letter-spacing: 3px;
 }
 .small-icon{

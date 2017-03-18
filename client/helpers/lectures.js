@@ -22,6 +22,7 @@ Template.lectures.events({
 		}, 500);
 	},
 	'click #create-lecture': function(){
+		//IMPLEMENT QUESTION URL
 		lectureTitle = $('.lecture-title-create').val();
 		lectureDesc =  $('.lecture-desc-create').val();
 		lectureDate = $('#date-picker').val();
@@ -79,5 +80,9 @@ Template.lectures.events({
 			$('.lecture-title-edit').val('');
 			$('.lecture-desc-edit').val('');
 		}, 500);
+	},
+	'click .caption .title': function(event){
+		parentId = (event.currentTarget.parentNode).parentNode.getAttribute('id');
+		Router.go('/'+parentId+'/questions-page');
 	}
 });

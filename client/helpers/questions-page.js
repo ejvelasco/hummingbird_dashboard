@@ -75,7 +75,6 @@ Template.questionsPage.events({
 	},
 	'click .question-item-edit': function(event){
 		questionId = $(event.currentTarget.parentNode.parentNode.parentNode.parentNode).attr('id');
-		// row = $(event.currentTarget.parentNode.parentNode.parentNode.parentNode.parentNode).animate({opacity: 0, height: 'toggle'}, 300);
 		questionText = $('#'+questionId+ '.thumbnail .question').text();
 		$('#question-edit-input').val(questionText);
 		$('#'+questionId+ ' .question-edit').animate({height: 'toggle'}, 200);
@@ -85,6 +84,15 @@ Template.questionsPage.events({
 	'click .question-edit-discard': function(event){
 		$('#question-edit').fadeOut(300);
 		$('.mask').fadeOut(300);
+	}, 
+	'click #question-edit-submit': function(event){
+		questionText = $('#question-edit-input').val();
+		Meteor.call('Questions.update', {id: questionId, text: questionText});
+		$('#question-edit').fadeOut(300);
+		$('.mask').fadeOut(300);
+		setTimeout(function(){
+			$('#question-edit-input').val('');
+		}, 500);
 	}
 
 });

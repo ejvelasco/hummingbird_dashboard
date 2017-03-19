@@ -1,4 +1,5 @@
 <template name="lectures">
+  {{> navigation }}
   <div id = "lectures-container">
     <p class = "lectures-title">{{ classObj.title }} - Lectures</p>
     <a onclick="this.blur();" id="new-lecture" data-toggle="collapse" href="#lecture-create" aria-expanded="false" aria-controls="lecture-create"><span class="glyphicon glyphicon-plus"></span> &nbsp; New Lecture Page</a>

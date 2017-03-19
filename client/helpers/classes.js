@@ -2,6 +2,7 @@ var classTitle, classDesc, parentId, grandParentObj, parentClass,id, date, class
 
 Template.classes.onCreated(function classesOnCreated() {
   Meteor.subscribe('classes');
+  document.title = "HB - Classes";
 });
 
 Template.classes.helpers({

@@ -1,3 +1,6 @@
+Template.welcome.onCreated(function welcomeOnCreated(){
+	document.title = "HB - Welcome";
+});
 Template.welcome.events({
 	'click #welcome-container': function(event,template){
 		$('#user-form').fadeOut('slow');
@@ -8,14 +11,7 @@ Template.welcome.events({
 })
 Accounts.onLogin(function(){
 	// Router.go('/home-instructor');
-	$('.navbar-default').css('filter', '');
-	$('#logo').removeClass('welcome');
-	$('#logo').addClass('home');
-	$('.navbar-default').css('background-color', '#F8F8F8');
 });
 Accounts.onLogout(function(){
 	Router.go('/');
-	$('#logo').removeClass('home');
-	$('#logo').addClass('welcome');
-	$('.navbar-default').css('background-color', 'transparent');
 });

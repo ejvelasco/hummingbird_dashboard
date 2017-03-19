@@ -1,0 +1,44 @@
+#new-question-submit{
+	display: inline-block;
+	position: relative;
+	left: 30px;
+	top: 8px;
+}
+#question-input{
+	position: relative;
+	top: 10px;
+	width: 80%;
+	display: inline-block;
+	padding: 10px;
+	font-size: 1.2em;
+	margin: 0 auto;
+}
+#discard-new-question{
+	/*float: right;*/
+	position: relative;
+	top: -25px;
+	margin-left: 30px;
+	/*left: 10px;*/
+}
+.question{
+	/*float: left;*/
+	display: inline-block;
+	width: 50%;
+	height: 60px;
+	transition: all 1s ease;
+}
+.question-menu{
+	float: right;
+	display: inline-block;
+}
+.question-edit{
+	display: none;
+	background-color: #BABABA;
+	width: 60px;
+	border-radius: 5px;;
+}
+.caption span{
+	padding: 7px;
+	font-weight: bold;
+	transform: scale(1.2);
+}

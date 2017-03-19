@@ -2,6 +2,7 @@ var lectureTitle, lectureDesc, classObj, dateEntered, parentClasses, lectureId;
 Template.lectures.onCreated(function lecturesOnCreated() {
   Meteor.subscribe('classes');
   Meteor.subscribe('lectures');
+  document.title = "HB - Lectures";
 });
 Template.lectures.helpers({
 	classObj : function(){

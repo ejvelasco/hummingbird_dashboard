@@ -1,3 +1,36 @@
-<template name="questions-page">
-    <p>Here is the questions home.</p>
+<template name="questionsPage">
+{{>navigationStudent}}
+<div  class="collapse" id="new-question-ask">
+  <div class="well">
+    <div class="caption">
+      <a href="#" id="discard-new-question"><span class="glyphicon glyphicon-remove"></span></a>
+      <input id="question-input" type="text" placeholder="What would you like to ask?">
+      <button id="new-question-submit" type="button" class="btn btn-primary" onclick="this.blur();">Ask Away!</button>
+    </div>
+  </div>
+</div>
+{{#each question in questions}}
+  <div class="row">
+      <div class="thumbnail" id='{{question._id}}'>
+        <div class="caption">
+        	<div class="question-menu">
+        	<a href="#" class="question-control question-menu-dd" id="{{question.id}}"><span class="glyphicon glyphicon-menu-down"></span></a>
+          	<a href="#" class="question-control"><span class="glyphicon glyphicon-star-empty"></span></a>
+        	<div class="question-edit">
+          		<span class="glyphicon glyphicon-remove question-item"></span> 
+          		<span class="glyphicon glyphicon-pencil question-item"></span> 
+          	</div>
+          	</div>
+        	<p class="question">{{question.text}}</p> 
+          <!-- <a class="lecture-count"><span class="glyphicon glyphicon-book small-icon"></span> LECTURES - {{class.lectures}}</a></p> -->
+          <!-- <p class="desc">{{class.desc}}</p> -->
+          <!-- {{#if class.updated}} -->
+            <!-- <p class= "date">Updated on: {{class.updated}}</p> -->
+          <!-- {{else}} -->
+            <!-- <p class= "date">Created on: {{class.date}}</p>  -->
+          <!-- {{/if}} -->
+        </div>
+      </div>
+  </div>
+{{/each}}
 </template>

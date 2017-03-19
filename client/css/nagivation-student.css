@@ -1,0 +1,22 @@
+#navigationStudent{
+	background-color: #F8F8F8;
+	/*text-align: center;*/
+}
+#questions-title{
+	font-size: 1.5em;
+	font-family: 'Raleway', sans-serif;
+	background-color:  #428bca;
+	color: white !important;
+}
+#resources{
+	color:  #428bca;
+	font-family: 'Raleway', sans-serif;
+}
+#new-question:hover{
+	background-color: #F8F8F8 !important;
+}
+#new-question-btn{
+	padding: 15px;
+	font-size: 1em;
+	font-family: 'Raleway', sans-serif;
+}

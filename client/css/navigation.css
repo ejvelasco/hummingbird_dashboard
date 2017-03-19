@@ -1,6 +1,11 @@
-.navbar-default{
+#navigation-welcome{
   background-color: transparent;
   border: none;
+  font-family: 'Raleway', sans-serif;
+}
+#navigation-default{
+  background-color: #F8F8F8;
+  font-family: 'Raleway', sans-serif;
 }
 .navbar-brand,
 .navbar-nav li a {

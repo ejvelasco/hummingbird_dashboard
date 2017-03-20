@@ -46,7 +46,6 @@
 .question-edit-discard{
 	display: block;
 	float: right;
-	margin-left: 10px;
 }
 #discard-new-question{
 	/*float: right;*/
@@ -74,13 +73,25 @@
 	width: 60px;
 	border-radius: 5px;;
 }
-.caption span{
+.question-menu span{
 	padding: 7px;
 	font-weight: bold;
-	transform: scale(1.2);
+	transform: scale(1.1);
 }
 .question-date{
 	margin-top: 10px;
 	font-size: .9em;
 	color: #BABABA;
+}
+.like{
+	color: #F4CF02 !important;
+}
+.like span{
+	transform: scale(1.5);
+}
+.like-count{
+	width: 30px !important;
+	/*background-color: blue;*/
+	position: relative;
+	display: inline-block;
 }

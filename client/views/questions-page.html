@@ -14,15 +14,21 @@
       <div class="thumbnail" id='{{question._id}}'>
         <div class="caption">
         	<div class="question-menu">
-        	<a href="#" class="question-control question-menu-dd" id="{{question.id}}"><span class="glyphicon glyphicon-menu-down"></span></a>
-          	<a href="#" class="question-control"><span class="glyphicon glyphicon-star-empty"></span></a>
+        	<a href="#" class="question-control question-menu-dd" id="{{question.id}}" onclick="this.blur();"><span class="glyphicon glyphicon-menu-down"></span></a>
+          	<a href="#" class="question-control like" onclick="this.blur();"><span class="glyphicon glyphicon-star-empty"></span></a>
+        	<p class="like-count">15</p>
         	<div class="question-edit">
           		<span class="glyphicon glyphicon-remove question-item-delete"></span> 
           		<span class="glyphicon glyphicon-pencil question-item-edit"></span> 
           	</div>
           	</div>
-        	<p class="question">{{question.text}}</p> 
-        	<p class="question-date">{{question.datePosted}}</p> 
+          	<p class="question">{{question.text}}</p> 
+        	{{#if question.updated}}
+        	<p class="question-date">{{question.updatedOn}} (edited)</p>
+        	{{/if}}
+        	{{#if question.date}}
+        	<p class="question-date">{{question.datePosted}}</p>
+        	{{/if}} 
         </div>
       </div>
   </div>

@@ -46,10 +46,15 @@ Template.questionsPage.helpers({
 	currentDate = new Date();
 	questions = Questions.find({}, {sort:{date: -1}}).map(function(question){
 		question.datePosted = formatTime(currentDate.getTime() - question.date);
+		question.updatedOn = formatTime(currentDate.getTime() - question.updated);
 		return question;
 	});
 	return questions;
 	}
+	// ,
+	// ownQuestion: function() {
+	//   return this.userId == Meteor.userId();
+	// }
 });
 Template.questionsPage.events({
 	'click #new-question-submit': function(event){
@@ -91,8 +96,13 @@ Template.questionsPage.events({
 		$('#question-edit').fadeOut(300);
 		$('.mask').fadeOut(300);
 		setTimeout(function(){
-			$('#question-edit-input').val('');
+			$('#question-edit-input').val('');xc
 		}, 500);
+	}, 
+	'click .like span': function(event){
+		$(event.currentTarget).addClass('glyphicon-star');
+		$(event.currentTarget).removeClass('glyphicon-star-empty');
+		// console.log(event.currentTarget);
 	}
 
 });

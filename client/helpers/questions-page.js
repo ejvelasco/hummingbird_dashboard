@@ -1,4 +1,4 @@
-var questionText, questionId, questionDate, questions, currentDate, currentDate, index, row, identifier, studentId, ownQuestion;
+var questionText, questionId, questionDate, questions, currentDate, currentDate, index, row, identifier, studentId, ownQuestion, lectureObj;
 var uuidV4 = require('uuid/v4');
 function formatTime(duration) {
     duration = duration/1000;
@@ -40,17 +40,12 @@ Template.questionsPage.onCreated(function questionsOnCreated() {
   if(localStorage.studentId === undefined){
 	localStorage.studentId = uuidV4();
   }
-  console.log(localStorage); 
 
 });
 Template.questionsPage.helpers({
-	lectureObj : function(){
-		lectureObj = this;
-		return lectureObj; 
-	}, 
 	questions : function(){
 	currentDate = new Date();
-	questions = Questions.find({}, {sort:{date: -1}}).map(function(question){
+	questions = Questions.find({parentLecture: Session.get("lectureId")}, {sort:{date: -1}}).map(function(question){
 		question.isOwned = localStorage.studentId === question.owner;
 		question.datePosted = formatTime(currentDate.getTime() - question.date);
 		question.updatedOn = formatTime(currentDate.getTime() - question.updated);
@@ -58,15 +53,12 @@ Template.questionsPage.helpers({
 	});
 	return questions;
 	}
-	// ,
-	// ownQuestion: function() {
-	//   return this.userId == Meteor.userId();
-	// }
 });
 Template.questionsPage.events({
 	'click #new-question-submit': function(event){
 		questionText = $('#question-input').val();
-		Meteor.call('Questions.insert', {text: questionText, owner: localStorage.studentId});			
+		// console.log(lectureObj);
+		Meteor.call('Questions.insert', {text: questionText, owner: localStorage.studentId, parentLecture: Session.get("lectureId")});			
 		$('#question-input').val('');
 		$('.collapse').collapse('hide');	
 	},

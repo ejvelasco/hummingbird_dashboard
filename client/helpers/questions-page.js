@@ -57,7 +57,6 @@ Template.questionsPage.helpers({
 Template.questionsPage.events({
 	'click #new-question-submit': function(event){
 		questionText = $('#question-input').val();
-		// console.log(lectureObj);
 		Meteor.call('Questions.insert', {text: questionText, owner: localStorage.studentId, parentLecture: Session.get("lectureId")});			
 		$('#question-input').val('');
 		$('.collapse').collapse('hide');	
@@ -75,7 +74,7 @@ Template.questionsPage.events({
 		row = $(event.currentTarget.parentNode.parentNode.parentNode.parentNode.parentNode).animate({opacity: 0, height: 'toggle'}, 300);
 		setTimeout(function(){
 			Meteor.call('Questions.remove', questionId);	
-		}, 1000);
+		}, 300);
 	},
 	'click .question-item-edit': function(event){
 		questionId = $(event.currentTarget.parentNode.parentNode.parentNode.parentNode).attr('id');
@@ -95,7 +94,7 @@ Template.questionsPage.events({
 		$('#question-edit').fadeOut(300);
 		$('.mask').fadeOut(300);
 		setTimeout(function(){
-			$('#question-edit-input').val('');xc
+			$('#question-edit-input').val('');
 		}, 500);
 	}, 
 	'click .like span': function(event){

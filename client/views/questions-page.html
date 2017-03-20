@@ -27,10 +27,9 @@
           <p class="question">{{question.text}}</p> 
         	{{#if question.updated}}
         	<p class="question-date">{{question.updatedOn}} (edited)</p>
-        	{{/if}}
-        	{{#if question.date}}
+        	{{else if question.date}}
         	<p class="question-date">{{question.datePosted}}</p>
-        	{{/if}} 
+        	{{/if}}
         </div>
       </div>
   </div>

@@ -1,4 +1,4 @@
-var questionText, questionId, questionDate, questions, currentDate, currentDate, index, row, identifier, studentId, ownQuestion, lectureObj;
+var questionText, questionId, questionDate, questions, currentDate, currentDate, index, row, identifier, studentId, ownQuestion, lectureObj, starClass;
 var uuidV4 = require('uuid/v4');
 function formatTime(duration) {
     duration = duration/1000;
@@ -57,7 +57,7 @@ Template.questionsPage.helpers({
 Template.questionsPage.events({
 	'click #new-question-submit': function(event){
 		questionText = $('#question-input').val();
-		Meteor.call('Questions.insert', {text: questionText, owner: localStorage.studentId, parentLecture: Session.get("lectureId")});			
+		Meteor.call('Questions.insert', {text: questionText, owner: localStorage.studentId, parentLecture: Session.get("lectureId"), stars: 0});			
 		$('#question-input').val('');
 		$('.collapse').collapse('hide');	
 	},
@@ -98,9 +98,17 @@ Template.questionsPage.events({
 		}, 500);
 	}, 
 	'click .like span': function(event){
-		$(event.currentTarget).addClass('glyphicon-star');
-		$(event.currentTarget).removeClass('glyphicon-star-empty');
-		// console.log(event.currentTarget);
+		starClass = $(event.currentTarget).attr('class');
+		questionId = $(event.currentTarget.parentNode.parentNode.parentNode.parentNode).attr('id');
+		if(starClass === 'glyphicon glyphicon-star'){
+			$(event.currentTarget).removeClass('glyphicon-star');
+			$(event.currentTarget).addClass('glyphicon-star-empty');	
+			Meteor.call('Questions.updateStarCount', {id: questionId, amount: -1});
+		} else{
+			$(event.currentTarget).addClass('glyphicon-star');
+			$(event.currentTarget).removeClass('glyphicon-star-empty');
+			Meteor.call('Questions.updateStarCount', {id: questionId, amount: 1});	
+		}
 	}
 
 });

@@ -1,4 +1,11 @@
-var questionText, questionId, questionDate, questions, currentDate, currentDate, index, row;
+var questionText, questionId, questionDate, questions, currentDate, currentDate, index, row, identifier, id;
+// const uuidV4 = require('uuid/v4');
+Session.set(id,1);
+if(Session.get(id) === undefined){
+	console.log('yep')
+} else{
+	console.log('nope')
+}
 function formatTime(duration) {
     duration = duration/1000;
     var days = 0;

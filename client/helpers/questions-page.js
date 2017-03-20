@@ -1,11 +1,5 @@
-var questionText, questionId, questionDate, questions, currentDate, currentDate, index, row, identifier, id;
-// const uuidV4 = require('uuid/v4');
-Session.set(id,1);
-if(Session.get(id) === undefined){
-	console.log('yep')
-} else{
-	console.log('nope')
-}
+var questionText, questionId, questionDate, questions, currentDate, currentDate, index, row, identifier, studentId, ownQuestion;
+var uuidV4 = require('uuid/v4');
 function formatTime(duration) {
     duration = duration/1000;
     var days = 0;
@@ -43,6 +37,11 @@ function formatTime(duration) {
 Template.questionsPage.onCreated(function questionsOnCreated() {
   Meteor.subscribe('questions');
   document.title = "Questions - Live";
+  if(localStorage.studentId === undefined){
+	localStorage.studentId = uuidV4();
+  }
+  console.log(localStorage); 
+
 });
 Template.questionsPage.helpers({
 	lectureObj : function(){
@@ -52,6 +51,7 @@ Template.questionsPage.helpers({
 	questions : function(){
 	currentDate = new Date();
 	questions = Questions.find({}, {sort:{date: -1}}).map(function(question){
+		question.isOwned = localStorage.studentId === question.owner;
 		question.datePosted = formatTime(currentDate.getTime() - question.date);
 		question.updatedOn = formatTime(currentDate.getTime() - question.updated);
 		return question;
@@ -66,7 +66,7 @@ Template.questionsPage.helpers({
 Template.questionsPage.events({
 	'click #new-question-submit': function(event){
 		questionText = $('#question-input').val();
-		Meteor.call('Questions.insert', {text: questionText});			
+		Meteor.call('Questions.insert', {text: questionText, owner: localStorage.studentId});			
 		$('#question-input').val('');
 		$('.collapse').collapse('hide');	
 	},

@@ -1,5 +1,6 @@
-var questionText, questionId, questionDate, questions, currentDate, currentDate, index, row, identifier, studentId, ownQuestion, lectureObj, starClass;
+var questionText, questionId, questionDate, questions, currentDate, currentDate, index, row, identifier, studentId, ownQuestion, starClass, idx;
 var uuidV4 = require('uuid/v4');
+var starredByUser = [];
 function formatTime(duration) {
     duration = duration/1000;
     var days = 0;
@@ -57,7 +58,8 @@ Template.questionsPage.helpers({
 Template.questionsPage.events({
 	'click #new-question-submit': function(event){
 		questionText = $('#question-input').val();
-		Meteor.call('Questions.insert', {text: questionText, owner: localStorage.studentId, parentLecture: Session.get("lectureId"), stars: 0});			
+		Meteor.call('Questions.insert', {text: questionText, owner: localStorage.studentId, parentLecture: Session.get("lectureId"), stars: 0});
+		Meteor.call('Lectures.updateQuestionCount', {lectureId: Session.get("lectureId")});			
 		$('#question-input').val('');
 		$('.collapse').collapse('hide');	
 	},
@@ -73,7 +75,8 @@ Template.questionsPage.events({
 		questionId = $(event.currentTarget.parentNode.parentNode.parentNode.parentNode).attr('id');
 		row = $(event.currentTarget.parentNode.parentNode.parentNode.parentNode.parentNode).animate({opacity: 0, height: 'toggle'}, 300);
 		setTimeout(function(){
-			Meteor.call('Questions.remove', questionId);	
+			Meteor.call('Questions.remove', questionId);
+			Meteor.call('Lectures.updateQuestionCount', {lectureId: Session.get("lectureId")});	
 		}, 300);
 	},
 	'click .question-item-edit': function(event){
@@ -96,18 +99,34 @@ Template.questionsPage.events({
 		setTimeout(function(){
 			$('#question-edit-input').val('');
 		}, 500);
+	},
+	'click .mask': function(event){
+		questionText = $('#question-edit-input').val();
+		Meteor.call('Questions.update', {id: questionId, text: questionText});
+		$('#question-edit').fadeOut(300);
+		$('.mask').fadeOut(300);
+		setTimeout(function(){
+			$('#question-edit-input').val('');
+		}, 500);
 	}, 
 	'click .like span': function(event){
 		starClass = $(event.currentTarget).attr('class');
 		questionId = $(event.currentTarget.parentNode.parentNode.parentNode.parentNode).attr('id');
-		if(starClass === 'glyphicon glyphicon-star'){
+		var alreadyStarred = starredByUser.find(function(id) { return id === questionId; });
+		if(alreadyStarred){
+			idx = starredByUser.indexOf(questionId);
+			starredByUser = starredByUser.splice(1, idx);
+			localStorage.starredByUser = starredByUser;
+			// console.log(starredByUser);
 			$(event.currentTarget).removeClass('glyphicon-star');
-			$(event.currentTarget).addClass('glyphicon-star-empty');	
+			$(event.currentTarget).addClass('glyphicon-star-empty');
 			Meteor.call('Questions.updateStarCount', {id: questionId, amount: -1});
 		} else{
 			$(event.currentTarget).addClass('glyphicon-star');
 			$(event.currentTarget).removeClass('glyphicon-star-empty');
 			Meteor.call('Questions.updateStarCount', {id: questionId, amount: 1});	
+			starredByUser.push(questionId);
+			localStorage.starredByUser = starredByUser;
 		}
 	}
 

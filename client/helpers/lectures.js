@@ -28,7 +28,7 @@ Template.lectures.events({
 		lectureDesc =  $('.lecture-desc-create').val();
 		lectureDate = $('#date-picker').val();
 		console.log(lectureTitle, lectureDesc, lectureDate);
-		Meteor.call('Lectures.insert', {parent:classObj._id, title: lectureTitle, desc: lectureDesc, date: lectureDate, created: new Date(), dateParsed: Date.parse(new Date()) });
+		Meteor.call('Lectures.insert', {parent:classObj._id, title: lectureTitle, desc: lectureDesc, date: lectureDate, created: new Date(), dateParsed: Date.parse(new Date()), lectureCount: 0 });
 		Meteor.call('Classes.updateLectureCount', classObj._id);
 		$('.collapse').collapse('hide');
 		setTimeout(function(){

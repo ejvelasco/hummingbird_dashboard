@@ -1,3 +1,53 @@
+@media only screen and (max-width: 800px) {
+ 	   #question-edit input{
+ 	   	width: 100%;
+ 	   }
+ 	   .question-edit-discard{
+ 	   	transform: scale(2);
+ 	   }
+ 	   #question-input, #question-edit-input{
+ 	   	width: 95%;
+ 	   }
+ 	   .thumbnail{
+ 	   	width: 85% !important;
+ 	   }
+ 	   .well{
+ 	   	width: 90%;
+ 	   }
+ 	   body{
+ 	   	overflow-x: hidden;
+
+ 	   }
+ 	   .navbar-nav li{
+ 	   	text-align: center;
+ 	   }
+ 	   #new-question-ask input{
+ 	   	width: 100%;
+ 	   }
+ 	   #new-question-submit{
+ 	   	position: absolute;
+ 	   	left: 0 !important;
+ 	   }
+ 	   #discard-new-question{
+ 	   		display: none;
+ 	   }
+ 	   .question-menu{
+ 	   	position: absolute;
+ 	   	right: 30px !important;
+ 	   }
+ 	   .question-menu-dd{
+ 	   	position: relative !important;
+ 	   	left: 0 !important;
+ 	   	z-index: 1;
+ 	   }
+ 	   .question-edit{
+ 	   	width: 30px !important;
+ 	   	text-align: center;
+ 	   }
+ 	   .question-edit-discard{
+ 	   		display: none;
+ 	   }
+}
 #new-question-submit{
 	display: inline-block;
 	position: relative;
@@ -5,7 +55,6 @@
 	top: 8px;
 	font-family: 'Raleway', sans-serif;
 	font-size: 1.2em;
-	/*padding: 10px !important;*/
 }
 #new-question-submit span{
 	transform: scale(.8);
@@ -40,7 +89,6 @@
 #question-edit-submit{
 	margin-top: 15px;
 	font-family: 'Raleway', sans-serif;
-	/*font-size: 1.2em;*/
 	padding-right: 15px !important;
 }
 .question-edit-discard{
@@ -48,19 +96,14 @@
 	float: right;
 }
 #discard-new-question{
-	/*float: right;*/
 	position: relative;
 	top: -25px;
 	margin-left: 30px;
-	/*left: 10px;*/
 }
 .question{
-	/*float: left;*/
-	/*margin-left: 10%;*/
 	position: relative;
 	left: 10%;
 	display: inline-block;
-	/*width: 50%;*/
 	transition: all 1s ease;
 }
 .question-menu{
@@ -88,6 +131,7 @@
 }
 .like span{
 	transform: scale(1.5);
+	z-index: 1;
 }
 .like-count{
 	width: 30px !important;

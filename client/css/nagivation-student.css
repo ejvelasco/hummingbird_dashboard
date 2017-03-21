@@ -20,3 +20,8 @@
 	font-size: 1em;
 	font-family: 'Raleway', sans-serif;
 }
+
+.navbar-toggle{
+	/*transform: scale(2);*/
+	padding: 2%;
+}

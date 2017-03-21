@@ -4,7 +4,9 @@
   font-family: 'Raleway', sans-serif;
 }
 #navigation-default{
-  background-color: #F8F8F8;
+  background-color: black;
+  border: none;
+  border-radius: 0px;
   font-family: 'Raleway', sans-serif;
 }
 .navbar-brand,
@@ -15,17 +17,17 @@
     font-size: 1.3em;
     padding-top: 0;
     transition: all .4s ease;
-    color: #0D5FB5 !important;
+    color: white !important;
 }
 .navbar-nav li a:hover{
-   color: black !important;
-   background-color: #EAEAEA !important;
+   background-color: #414242 !important;
 
 }
 .dropdown-menu li a{
   height: 30px;
   line-height: 30px;
   font-size: .95em;
+  color: black !important;
   /*font-weight: bold;*/
   text-align: center;
 }
@@ -36,6 +38,9 @@
 .dropdown-menu {
   background-color: #F8F8F8;
   width: 265px;
+}
+.open{
+  background-color: #414242 !important;
 }
 #sign-in{
   position: relative;
@@ -51,13 +56,46 @@
   border-color: white;
   border-radius: 0px;
 }
+#sign-in:hover{
+  background-color: #04B9A9;
+}
 .dropdown-menu li .sign-out:hover{
   color: red !important;
   margin-left: 20px;
   background-color: #F8F8F8 !important;
   /*color: white !important;*/
-
 }
 .btn:focus,.btn:active {
    outline: none !important;
+}
+@media only screen and (max-width: 800px) {
+    #navigation-welcome{
+      background-color: black;
+    }
+    .navbar-brand,
+    .navbar-nav li a {
+        line-height: 80px;
+        height: 80px;
+        font-size: 2.5em !important;
+        padding: 10px;
+        padding-top: 0px;
+        background-color: black;
+    }
+    #sign-in{
+      margin-top: 0px;
+      border: none;
+    }
+    .navbar-nav{
+      background-color: black;
+    }
+}
+.navbar-toggle{
+  background-color: black !important;
+  color: white !important;
+  margin-top: 20px;
+  margin-right: 25px;
+  transform: scale(1.4);
+}
+#logo{
+  color: white !important;
 }

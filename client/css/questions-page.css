@@ -139,3 +139,6 @@
 	position: relative;
 	display: inline-block;
 }
+#dd-control{
+	cursor: pointer;
+}

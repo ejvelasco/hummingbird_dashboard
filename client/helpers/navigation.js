@@ -21,8 +21,14 @@ Template.navigation.events({
 	'click .dropdown-menu li .sign-out': function(event,template){
 		Meteor.logout();
 		$('#user-form').fadeOut('slow');
-	}
-
+	}, 
+  'click #dd-control' : function(){
+    if($('#dd').css('display') === 'none'){
+      $('#dd').slideDown(200);
+    } else{
+     $('#dd').slideUp(200); 
+    }
+  }
 
 })
 Tracker.autorun(function () {

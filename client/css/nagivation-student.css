@@ -1,29 +1,38 @@
 #navigationStudent{
 	background-color: black;
-	/*text-align: center;*/
+	position: fixed;
+	width: 100%;
+	z-index: 2;
+	left: 0;
+	top: 0;
+	border: none;
 }
 #questions-title{
+	position: relative;
 	font-size: 1.5em;
 	font-family: 'Raleway', sans-serif;
 	background-color:  #616262;
 	color: white !important;
 }
-#resources{
-	color:  #428bca;
-	font-family: 'Raleway', sans-serif;
-}
-#new-question:hover{
-	background-color: black !important;
+#resources{	font-family: 'Raleway', sans-serif;
 }
 #new-question-btn{
 	padding: 15px;
 	font-size: 1em;
+	background-color: #04B9A9;
+	border: none;
 	font-family: 'Raleway', sans-serif;
 }
-
 .navbar-toggle{
 	/*transform: scale(2);*/
 	padding: 2%;
+	border-color: #04B9A9;
+	border-width: 2px;
+	margin-right: 35px !important;
+}
+.navbar-toggle span{
+	background-color: white !important;
+	border: solid 2px white;
 }
 @media only screen and (max-width: 800px) {
 	#navigationStudent{

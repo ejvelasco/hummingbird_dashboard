@@ -5,6 +5,15 @@
 	margin-top: 0px !important;
 	margin-bottom: 0px !important; 
 }
+#new-question-ask{
+	position: relative;
+	top: 100px;
+}
+#questions-container{
+	position: relative;
+	top: 100px;
+	margin-top: 20px;
+}
 #new-question-submit{
 	display: inline-block;
 	position: relative;
@@ -12,6 +21,8 @@
 	top: 8px;
 	font-family: 'Raleway', sans-serif;
 	font-size: 1.2em;
+	border: none;
+	background-color: #04B9A9;
 }
 #new-question-submit span{
 	transform: scale(.8);
@@ -26,7 +37,7 @@
 	margin: 0 auto;
 }
 #question-edit{
-	position: absolute;
+	position: fixed;
 	right: 0;
 	left: 0;
 	top: 39.5%;
@@ -47,14 +58,16 @@
 	margin-top: 15px;
 	font-family: 'Raleway', sans-serif;
 	padding-right: 15px !important;
+	background-color: #04B9A9;
+	border: none;
 }
 .question-edit-discard{
 	display: block;
 	float: right;
 }
 #discard-new-question{
-	position: relative;
-	top: -25px;
+	float: right;
+	top: -5px;
 	margin-left: 30px;
 }
 .question{
@@ -62,7 +75,7 @@
 	left: 10%;
 	display: inline-block;
 	transition: all 1s ease;
-	width: 75% !important;
+	width: 95% !important;
 }
 .
 .question-menu{
@@ -106,6 +119,7 @@
 	margin-left: 10%;
 }
 @media only screen and (max-width: 800px) {
+ 	   .nav
  	   #question-edit input{
  	   	width: 100%;
  	   }
@@ -138,24 +152,7 @@
  	   #discard-new-question{
  	   		display: none;
  	   }
- 	   .question-menu{
- 	   	position: absolute;
- 	   	right: 15px !important;
- 	   }
- 	   .question-menu-dd{
- 	   	position: relative !important;
- 	   	left: 0 !important;
- 	   	z-index: 1;
- 	   }
- 	   .question-edit{
- 	   	width: 30px !important;
- 	   	text-align: center;
- 	   }
  	   .question-edit-discard{
  	   		display: none;
- 	   }
- 	   .question, .date{
- 	   	font-size: 1em; 
- 	   	width: 65% !important;
  	   }
 }

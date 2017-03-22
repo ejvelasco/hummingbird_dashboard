@@ -41,8 +41,8 @@ function formatTime(duration) {
     }
     return datePosted;
 }
-Template.questionsPage.onCreated(function questionsOnCreated() {
-  Meteor.subscribe('questions');
+Template.questionsPage.onCreated(function questionsPageOnCreated() {
+  loadingTemplate: 'loading',
   document.title = "Questions - Live";
   if(localStorage.studentId === undefined){
 	localStorage.studentId = uuidV4();
@@ -57,7 +57,6 @@ Template.questionsPage.helpers({
 		question.datePosted = formatTime(currentDate.getTime() - question.date);
 		question.updatedOn = formatTime(currentDate.getTime() - question.updated);
 		question.starred = document.cookie;
-		console.log(question.starred)
 		idx = question.starred.indexOf('=');
 		question.starred = question.starred.substring(idx+1, question.starred.length).split(',').find((id) => id === question._id);
 		return question;

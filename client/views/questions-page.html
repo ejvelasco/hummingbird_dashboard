@@ -3,12 +3,14 @@
 <div  class="collapse" id="new-question-ask">
   <div class="well">
     <div class="caption">
-      <a href="#" id="discard-new-question"><span class="glyphicon glyphicon-remove"></span></a>
+      <span id="discard-new-question" class="glyphicon glyphicon-remove"></span>
       <input id="question-input" type="text" placeholder="What would you like to ask?">
       <button id="new-question-submit" type="button" class="btn btn-primary" onclick="this.blur();">Ask</button>
     </div>
   </div>
 </div>
+<div id="questions-container">
+{{#if questions}}
 {{#each question in questions}}
   <div class="row">
       <div class="thumbnail row-question" id='{{question._id}}'>
@@ -40,12 +42,22 @@
       </div>
   </div>
   {{/each}}
+  {{else}}
+  <div class="row">
+      <div class="thumbnail row-question" id='{{question._id}}'>
+        <div class="caption">
+          <p class="question no-questions">There are currently no questions on this feed. Go ahead and ask the first!</p> 
+          </div>
+        </div>
+  </div>
+  {{/if}}
+  </div>
   <div class="row">
       <div class="thumbnail" id='question-edit'>
         <div class="caption">
           	<span class="glyphicon glyphicon-remove question-edit-discard"></span>
         	<input id="question-edit-input" type="text">
-        	<button id="question-edit-submit" type="button" class="btn btn-primary" onclick="this.blur();"><span class="glyphicon glyphicon-ok"></span> Update</button>
+        	<button id="question-edit-submit" type="button" class="btn btn-primary" onclick="this.blur();">Update</button>
         </div>
       </div>
   </div>

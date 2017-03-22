@@ -101,8 +101,6 @@ Template.questionsPage.events({
 		}, 500);
 	},
 	'click .mask': function(event){
-		questionText = $('#question-edit-input').val();
-		Meteor.call('Questions.update', {id: questionId, text: questionText});
 		$('#question-edit').fadeOut(300);
 		$('.mask').fadeOut(300);
 		setTimeout(function(){

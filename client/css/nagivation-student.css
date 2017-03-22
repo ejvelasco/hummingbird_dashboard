@@ -1,11 +1,11 @@
 #navigationStudent{
-	background-color: #F8F8F8;
+	background-color: black;
 	/*text-align: center;*/
 }
 #questions-title{
 	font-size: 1.5em;
 	font-family: 'Raleway', sans-serif;
-	background-color:  #428bca;
+	background-color:  #616262;
 	color: white !important;
 }
 #resources{
@@ -13,7 +13,7 @@
 	font-family: 'Raleway', sans-serif;
 }
 #new-question:hover{
-	background-color: #F8F8F8 !important;
+	background-color: black !important;
 }
 #new-question-btn{
 	padding: 15px;
@@ -24,4 +24,9 @@
 .navbar-toggle{
 	/*transform: scale(2);*/
 	padding: 2%;
+}
+@media only screen and (max-width: 800px) {
+	#navigationStudent{
+		font-size: .6em;
+	}
 }

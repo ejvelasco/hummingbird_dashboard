@@ -99,3 +99,6 @@
 #logo{
   color: white !important;
 }
+#dd-control{
+  cursor: pointer;
+}

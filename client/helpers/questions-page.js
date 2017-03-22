@@ -1,6 +1,12 @@
-var questionText, questionId, questionDate, questions, currentDate, currentDate, index, row, identifier, studentId, ownQuestion, starClass, idx;
+var questionText, questionId, questionDate, questions, currentDate, currentDate, index, row, identifier, studentId, ownQuestion, starClass, idx, alreadyStarred;
 var uuidV4 = require('uuid/v4');
 var starredByUser = [];
+starredByUser = document.cookie;
+idx = starredByUser.indexOf('=');
+starredByUser = starredByUser.substring(idx+1, starredByUser.length).split(',');
+if(starredByUser[0] === ''){
+	starredByUser = [];
+}
 function formatTime(duration) {
     duration = duration/1000;
     var days = 0;
@@ -50,6 +56,10 @@ Template.questionsPage.helpers({
 		question.isOwned = localStorage.studentId === question.owner;
 		question.datePosted = formatTime(currentDate.getTime() - question.date);
 		question.updatedOn = formatTime(currentDate.getTime() - question.updated);
+		question.starred = document.cookie;
+		console.log(question.starred)
+		idx = question.starred.indexOf('=');
+		question.starred = question.starred.substring(idx+1, question.starred.length).split(',').find((id) => id === question._id);
 		return question;
 	});
 	return questions;
@@ -72,15 +82,15 @@ Template.questionsPage.events({
 		$('#'+questionId+ ' .question-edit').animate({height: 'toggle'}, 200);
 	}, 
 	'click .question-item-delete': function(event){
-		questionId = $(event.currentTarget.parentNode.parentNode.parentNode.parentNode).attr('id');
-		row = $(event.currentTarget.parentNode.parentNode.parentNode.parentNode.parentNode).animate({opacity: 0, height: 'toggle'}, 300);
+		questionId = $(event.currentTarget.parentNode.parentNode.parentNode).attr('id');
+		row = $(event.currentTarget.parentNode.parentNode.parentNode.parentNode).animate({opacity: 0, height: 'toggle'}, 300);
 		setTimeout(function(){
 			Meteor.call('Questions.remove', questionId);
 			Meteor.call('Lectures.updateQuestionCount', {lectureId: Session.get("lectureId")});	
 		}, 300);
 	},
 	'click .question-item-edit': function(event){
-		questionId = $(event.currentTarget.parentNode.parentNode.parentNode.parentNode).attr('id');
+		questionId = $(event.currentTarget.parentNode.parentNode.parentNode).attr('id');
 		questionText = $('#'+questionId+ '.thumbnail .question').text();
 		$('#question-edit-input').val(questionText);
 		$('#'+questionId+ ' .question-edit').animate({height: 'toggle'}, 200);
@@ -107,24 +117,23 @@ Template.questionsPage.events({
 			$('#question-edit-input').val('');
 		}, 500);
 	}, 
-	'click .like span': function(event){
+	'click .like': function(event){
 		starClass = $(event.currentTarget).attr('class');
-		questionId = $(event.currentTarget.parentNode.parentNode.parentNode.parentNode).attr('id');
-		var alreadyStarred = starredByUser.find(function(id) { return id === questionId; });
+		questionId = $(event.currentTarget.parentNode.parentNode.parentNode).attr('id');
+		alreadyStarred = starredByUser.find(function(id) { return id === questionId; });
 		if(alreadyStarred){
-			idx = starredByUser.indexOf(questionId);
-			starredByUser = starredByUser.splice(1, idx);
-			localStorage.starredByUser = starredByUser;
-			// console.log(starredByUser);
 			$(event.currentTarget).removeClass('glyphicon-star');
 			$(event.currentTarget).addClass('glyphicon-star-empty');
+			idx = starredByUser.indexOf(questionId);
+			starredByUser.splice(idx, 1);
+			document.cookie = 'starredByUser='+starredByUser;
 			Meteor.call('Questions.updateStarCount', {id: questionId, amount: -1});
 		} else{
 			$(event.currentTarget).addClass('glyphicon-star');
 			$(event.currentTarget).removeClass('glyphicon-star-empty');
-			Meteor.call('Questions.updateStarCount', {id: questionId, amount: 1});	
 			starredByUser.push(questionId);
-			localStorage.starredByUser = starredByUser;
+			document.cookie = 'starredByUser='+starredByUser;
+			Meteor.call('Questions.updateStarCount', {id: questionId, amount: 1});	
 		}
 	}
 

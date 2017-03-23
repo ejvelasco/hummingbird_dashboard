@@ -83,6 +83,7 @@
 	padding: 10px !important;
 	padding-bottom: 0px !important;
 	font-size: .9em !important;
+	/*transition: all 1s ease;*/
 }
 .comments{
 	display: none;
@@ -92,6 +93,7 @@
 	border-color: #E6E6E6;
 	width: 80%;
 	margin: 0 auto;
+	margin-bottom: 20px;
 }
 .comment-date{
 	padding: 0 !important;
@@ -103,6 +105,7 @@
 .new-comment{
 	width: 100%;
 	padding: 8px;
+	margin-bottom: 10px;
 }
 .question-menu{
 	position: relative;
@@ -135,6 +138,12 @@
 }
 .question-menu{
 	margin-left: 10%;
+}
+.comment-delete{
+	float: right;
+	margin: 5px;
+	transform: scale(.8);
+	color: #BABABA;
 }
 @media only screen and (max-width: 800px) {
  	   .nav

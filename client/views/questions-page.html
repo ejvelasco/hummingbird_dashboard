@@ -40,13 +40,16 @@
           </div>
         </div>
         <div class="comments">
-            {{#each comment in comments}}
-            <div class=".comment-container" id ="{{comment._id}}">
-            
+            {{#if question.comments}}
+            {{#each comment in question.comments}}
+            <div class="comment-container" id ="{{comment.id}}">
+            <span class="glyphicon glyphicon-remove comment-delete"></span>
             <p class="comment">{{comment.text}}</p>
             <p class="comment-date">{{comment.datePosted}}</p>
+
             </div>
             {{/each}}
+            {{/if}}
             <p class="comment">
               <input class="new-comment" placeholder="Write Comment...">
             </p>

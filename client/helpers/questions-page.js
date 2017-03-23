@@ -1,6 +1,7 @@
-var questionText, questionId, questionDate, questions, currentDate, currentDate, index, row, identifier, studentId, ownQuestion, starClass, idx, alreadyStarred, comments, commentText;
+var questionText, questionId, questionDate, questions, currentDate, currentDate, index, row, identifier, studentId, ownQuestion, starClass, idx, alreadyStarred, comments, commentText, lastQuestionId;
 var uuidV4 = require('uuid/v4');
 var starredByUser = [];
+var newQuestionId;
 starredByUser = document.cookie;
 idx = starredByUser.indexOf('=');
 starredByUser = starredByUser.substring(idx+1, starredByUser.length).split(',');
@@ -52,28 +53,25 @@ Template.questionsPage.helpers({
 	questions : function(){
 	currentDate = new Date();
 	questions = Questions.find({parentLecture: Session.get("lectureId")}, {sort:{date: -1}}).map(function(question){
-		question.isOwned = localStorage.studentId === question.owner;
+		question.isOwned = (localStorage.studentId === question.owner);
 		question.datePosted = formatTime(currentDate.getTime() - question.date);
 		question.updatedOn = formatTime(currentDate.getTime() - question.updated);
 		question.starred = document.cookie;
 		idx = question.starred.indexOf('=');
 		question.starred = question.starred.substring(idx+1, question.starred.length).split(',').find((id) => id === question._id);
+		question.comments.map(function(comment){
+			comment.datePosted = formatTime(currentDate.getTime() - comment.date);
+			return comment;
+		})
 		return question;
 	});
 	return questions;
-	},
-	comments : function(){
-		comments = Comments.find({}, {sort: {date: 1}}).map(function(comment){
-			comment.datePosted = formatTime(currentDate.getTime() - comment.date);	
-			return comment;
-		});
-	return comments;
 	}
 });
 Template.questionsPage.events({
 	'click #new-question-submit': function(event){
 		questionText = $('#question-input').val();
-		Meteor.call('Questions.insert', {text: questionText, owner: localStorage.studentId, parentLecture: Session.get("lectureId"), stars: 0});
+		Meteor.call('Questions.insert', {text: questionText, owner: localStorage.studentId, parentLecture: Session.get("lectureId"), stars: 0, comments: []});
 		Meteor.call('Lectures.updateQuestionCount', {lectureId: Session.get("lectureId")});			
 		$('#question-input').val('');
 		$('.collapse').collapse('hide');	
@@ -81,7 +79,7 @@ Template.questionsPage.events({
 	'keypress #new-question-ask input': function (event) {
 	    if(event.which === 13){
 	    	questionText = $('#question-input').val();
-	    	Meteor.call('Questions.insert', {text: questionText, owner: localStorage.studentId, parentLecture: Session.get("lectureId"), stars: 0});
+	    	Meteor.call('Questions.insert', {text: questionText, owner: localStorage.studentId, parentLecture: Session.get("lectureId"), stars: 0, comments: []});
 	    	Meteor.call('Lectures.updateQuestionCount', {lectureId: Session.get("lectureId")});			
 	    	$('#question-input').val('');
 	    	$('.collapse').collapse('hide');	
@@ -152,14 +150,22 @@ Template.questionsPage.events({
 	},
 	'click .comment-toggle': function(event){
 		questionId = $(event.currentTarget.parentNode.parentNode.parentNode).attr('id');
-		$('#'+questionId+' .comments').animate({height: 'toggle'}, 300);
-		
+		$('#'+questionId+' .comments').animate({height: 'toggle', opacity: 'toggle'}, 300);
 	},
 	'keypress .comment input': function (event) {
 		if(event.which === 13){
 			commentText = $(event.currentTarget).val();
-			Meteor.call('Comments.insert', {text: commentText});
+			Meteor.call('Questions.insertComment', {id: questionId, commentText: commentText, });
+			$(event.currentTarget).val('');
 		}
+	},
+	'click .comment input': function(event){
+		questionId = $(event.currentTarget.parentNode.parentNode.parentNode).attr('id');
+	},
+	'click .comment-delete': function(event){
+		newQuestionId = $(event.currentTarget.parentNode.parentNode.parentNode).attr('id');
+		commentId = $(event.currentTarget.parentNode).attr('id');
+		Meteor.call('Questions.deleteComment', {id: newQuestionId, commentId: commentId});
 	}
 
 });

@@ -101,4 +101,7 @@ h1{
     margin-left: 30px;
     font-size: 4em;
   }
+  #user-form{
+    width: 80%;
+  }
 }

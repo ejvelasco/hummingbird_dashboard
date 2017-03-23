@@ -22,6 +22,7 @@
         	<p class="question-date">{{question.datePosted}}</p>
         	{{/if}}
           <div class="question-menu">
+          <p class="comment-count">{{question.commentCounter}}</p>
           <span class="glyphicon glyphicon-comment comment-toggle"></span> 
           {{#if question.isOwned}}
           <span class="glyphicon glyphicon-remove question-item-delete"></span> 

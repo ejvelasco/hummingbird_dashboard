@@ -136,6 +136,11 @@
 	position: relative;
 	display: inline-block;
 }
+.comment-count{
+	width: 30px !important;
+	display: inline-block;
+	text-align: right;
+}
 .question-menu{
 	margin-left: 10%;
 }

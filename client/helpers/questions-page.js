@@ -59,10 +59,12 @@ Template.questionsPage.helpers({
 		question.starred = document.cookie;
 		idx = question.starred.indexOf('=');
 		question.starred = question.starred.substring(idx+1, question.starred.length).split(',').find((id) => id === question._id);
+		question.commentCounter = 0;
 		question.comments.map(function(comment){
+			question.commentCounter++;
 			comment.datePosted = formatTime(currentDate.getTime() - comment.date);
 			return comment;
-		})
+		});
 		return question;
 	});
 	return questions;

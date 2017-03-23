@@ -22,7 +22,7 @@
         	<p class="question-date">{{question.datePosted}}</p>
         	{{/if}}
           <div class="question-menu">
-          <span class="glyphicon glyphicon-comment"></span> 
+          <span class="glyphicon glyphicon-comment comment-toggle"></span> 
           {{#if question.isOwned}}
           <span class="glyphicon glyphicon-remove question-item-delete"></span> 
           <span class="glyphicon glyphicon-pencil question-item-edit"></span> 
@@ -38,6 +38,19 @@
           <p class="like-count"></p>
           {{/if}}
           </div>
+        </div>
+        <div class="comments">
+            {{#each comment in comments}}
+            <div class=".comment-container" id ="{{comment._id}}">
+            
+            <p class="comment">{{comment.text}}</p>
+            <p class="comment-date">{{comment.datePosted}}</p>
+            </div>
+            {{/each}}
+            <p class="comment">
+              <input class="new-comment" placeholder="Write Comment...">
+            </p>
+            
         </div>
       </div>
   </div>

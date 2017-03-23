@@ -1,4 +1,4 @@
-var questionText, questionId, questionDate, questions, currentDate, currentDate, index, row, identifier, studentId, ownQuestion, starClass, idx, alreadyStarred;
+var questionText, questionId, questionDate, questions, currentDate, currentDate, index, row, identifier, studentId, ownQuestion, starClass, idx, alreadyStarred, comments, commentText;
 var uuidV4 = require('uuid/v4');
 var starredByUser = [];
 starredByUser = document.cookie;
@@ -47,7 +47,6 @@ Template.questionsPage.onCreated(function questionsPageOnCreated() {
   if(localStorage.studentId === undefined){
 	localStorage.studentId = uuidV4();
   }
-
 });
 Template.questionsPage.helpers({
 	questions : function(){
@@ -62,6 +61,13 @@ Template.questionsPage.helpers({
 		return question;
 	});
 	return questions;
+	},
+	comments : function(){
+		comments = Comments.find({}, {sort: {date: 1}}).map(function(comment){
+			comment.datePosted = formatTime(currentDate.getTime() - comment.date);	
+			return comment;
+		});
+	return comments;
 	}
 });
 Template.questionsPage.events({
@@ -72,7 +78,7 @@ Template.questionsPage.events({
 		$('#question-input').val('');
 		$('.collapse').collapse('hide');	
 	},
-	'keypress input': function (event) {
+	'keypress #new-question-ask input': function (event) {
 	    if(event.which === 13){
 	    	questionText = $('#question-input').val();
 	    	Meteor.call('Questions.insert', {text: questionText, owner: localStorage.studentId, parentLecture: Session.get("lectureId"), stars: 0});
@@ -142,6 +148,17 @@ Template.questionsPage.events({
 			starredByUser.push(questionId);
 			document.cookie = 'starredByUser='+starredByUser;
 			Meteor.call('Questions.updateStarCount', {id: questionId, amount: 1});	
+		}
+	},
+	'click .comment-toggle': function(event){
+		questionId = $(event.currentTarget.parentNode.parentNode.parentNode).attr('id');
+		$('#'+questionId+' .comments').animate({height: 'toggle'}, 300);
+		
+	},
+	'keypress .comment input': function (event) {
+		if(event.which === 13){
+			commentText = $(event.currentTarget).val();
+			Meteor.call('Comments.insert', {text: commentText});
 		}
 	}
 

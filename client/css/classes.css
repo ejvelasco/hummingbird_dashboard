@@ -1,17 +1,9 @@
 .thumbnail{
 	display: block;
 	width: 50%;
-	/*height: 150px;*/
 	margin: 0 auto;
 	margin-top: 20px;
-}
-/*.thumbnail p{
-	margin: 0 !important;
-
-	padding: 0 !important;
-}*/
-.thumbnail:hover{
-	/*background-color: #F8F8F8;*/
+	background-color: white;
 }
 .date{
 	font-size: .9em;
@@ -25,7 +17,6 @@
 	margin-right: 15px;
 }
 .well a{
-	/*float: right;*/
 	position: relative;
 	text-decoration: none;
 	top: 0px;
@@ -33,32 +24,46 @@
 }
 #classes-container{
 	width: 100%;
-	/*text-align: center;*/
-	/*font-size: 1.1em;*/
+	height: 100%;
+	position: absolute !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	top: 80px !important;
+	background-color: #142C3E;
 }
 #new-class{
-	text-decoration: none;
 	cursor: pointer;
-	/*position: absolute;*/
 	display: block;
-	/*width: 100%;*/
 	text-align: center;
-	font-weight: bold;
-	font-size: 1.7em;
+	font-size: 1.2em;
 	padding-top: 10px;
+	letter-spacing: 4px;
 	padding-bottom: 10px;
 	transition: all.3s ease;
+	color: #808AA9;
+}
+#new-class:hover{
+	color: #BABABA;
 }
 .well{
 	width: 50.5%;
 	margin: 0 auto;
+	background-color: white;
+	border: none;
 }
 #classes-container input, #classes-container textarea{
 	width: 80%;
 	display: block;
 	padding: 10px;
 	margin: 0 auto;
-	font-size: 1.2em;
+	font-size: 1.3em;
+	border: solid 2px;
+	border-color: #BABABA !important;
+	outline: none;
+}
+#classes-container input{
+	border: none;
+	border-bottom: solid 2px;
 }
 .caption{
 	width: 95%;
@@ -68,48 +73,78 @@
 .caption p{
 	margin-bottom: 0 !important;
 	padding: 0 !important;
-	width: 80%;
+	width: 85%;
 	margin: 0 auto;
+	color: #736861;
 }
 .caption .date{
-	margin-top: 20px;
-	margin-bottom: 10px !important;
+	font-size: 1.1em;
+	font-weight: bold;
+	display: inline-block;
+	/*margin-left: 7.5%;*/
+	width: 20%;
+	margin-top: 35px;
+	/*margin-bottom: 10px !important;*/
+}
+.lecture-count{
+	font-size: 1.1em;
+	font-weight: bold;
+	display: inline-block;
+	width: 20%;
 }
 .caption .title{
 	font-size: 1.7em;
 	font-weight: bold;
-	border-bottom: solid 1px;
+	border-bottom: solid 2px;
 	transition: all .3s ease;
+	color: #736861;
+	border-color: #736861;
+}
+.caption .desc{
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 .caption .title:hover{
 	color: #BABABA;
 }
-.caption .desc{
-	margin-top: 15px;
-}
 .well input, .well textarea{
 	margin-bottom: 20px !important;
-}
-#classes-container textarea{
-	height: 100px;
 }
 #create, .update{
 	margin-left: 10%;
 	margin-top: 10px;
 	margin-bottom: 10px;
+	background-color: #8996A0;
+	font-weight: bold;
+	/*font-size: 1.1em;*/
+	border: none;
+	transition: all .3s ease;
 }
-
+#create:hover, .update:hover{
+	background-color: #6D7880;
+}
+#class-edit{
+	display: none;
+}
 .thumbnail{
 	cursor: pointer;
 }
 .lecture-count{
-	float: right;
-	font-size: .5em !important;
+	margin-left: 10%;
 	padding: 10px;
-	text-decoration: none !important;
-	/*margin-right: 5px;*/
-	letter-spacing: 3px;
+	padding-left: 0;
+	color: #736861;
 }
-.small-icon{
-	transform: scale(.8);
+.lecture-msg{
+	display: inline-block;
+	font-weight: bolder;
+	font-size: .9em;
+	color: #736861;
+}
+@media only screen and (max-width: 800px) {
+  .lecture-count{
+  }
+  .title{
+  	float: left;
+  }
 }

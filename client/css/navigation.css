@@ -1,34 +1,55 @@
 #navigation-welcome{
-  background-color: transparent;
+  background-color: #A51C30;
   border: none;
+  border-radius: 0;
   font-family: 'Raleway', sans-serif;
+  padding: 20px;
+   /*-webkit-box-shadow: 0 5px 30px 5px #999;
+    -moz-box-shadow: 0 5px 30px 5px #999;
+    box-shadow: 0 5px 30px 5px #999;*/
 }
 #navigation-default{
-  background-color: black;
+  background-color: #A51C30;
   border: none;
   border-radius: 0px;
   font-family: 'Raleway', sans-serif;
+  padding-left: 30px;
 }
 .navbar-brand,
+#navigation-welcome .navbar-nav li a {
+    line-height: 80px;
+    height: 80px;
+    padding: 30px;
+    font-size: 1.8em !important;
+    letter-spacing: 4px;
+    padding-top: 0;
+    padding-left: 0;
+    transition: all .4s ease;
+    color: white !important;
+}
 .navbar-nav li a {
     line-height: 80px;
     height: 80px;
     padding: 30px;
-    font-size: 1.3em;
+    font-size: .9em;
+    letter-spacing: 3px;
+    font-weight: bold;
     padding-top: 0;
     transition: all .4s ease;
     color: white !important;
 }
 .navbar-nav li a:hover{
-   background-color: #414242 !important;
+   background-color: #C7223A !important;
 
+}
+.navbar-nav li a .glyphicon{
+  font-size: 1.3em;
 }
 .dropdown-menu li a{
   height: 30px;
   line-height: 30px;
   font-size: .95em;
   color: black !important;
-  /*font-weight: bold;*/
   text-align: center;
 }
 .dropdown-menu li a:hover{
@@ -49,28 +70,27 @@
   padding: 25px;
   padding-top: 10px;
   padding-bottom: 10px;
-  font-size: 1.2em;
-  font-weight: bold;
+  font-size: 1em;
+  letter-spacing: 3px;
   transition: all .3s ease;
   color: white;
-  border-color: white;
-  border-radius: 0px;
+  background-color: #781423;
+  border: none;
 }
 #sign-in:hover{
-  background-color: #04B9A9;
+  background-color: #5C0C18;
 }
 .dropdown-menu li .sign-out:hover{
   color: red !important;
   margin-left: 20px;
   background-color: #F8F8F8 !important;
-  /*color: white !important;*/
 }
 .btn:focus,.btn:active {
    outline: none !important;
 }
 @media only screen and (max-width: 800px) {
     #navigation-welcome{
-      background-color: black;
+      background-color: #A51C30;
     }
     .navbar-brand,
     .navbar-nav li a {
@@ -79,19 +99,18 @@
         font-size: 2.5em !important;
         padding: 10px;
         padding-top: 0px;
-        background-color: black;
+        background-color: #A51C30;
     }
     #sign-in{
       margin-top: 0px;
       border: none;
     }
     .navbar-nav{
-      background-color: black;
+      background-color: #A51C30;
     }
 }
 .navbar-toggle{
-  background-color: black !important;
-  color: white !important;
+  background-color: #A51C30 !important;
   margin-top: 20px;
   margin-right: 25px;
   transform: scale(1.4);
@@ -99,6 +118,19 @@
 #logo{
   color: white !important;
 }
+.logo-img{
+  background: url('/img/logo-2.png');
+  height: 70px;
+  width: 70px;
+  margin-right: 3px;
+  transform: rotate(-15deg);
+  background-size: cover;
+  float: left;
+}
 #dd-control{
   cursor: pointer;
+}
+.crimson{
+  color: #6A121F !important;
+  /*background-color: #6A121F !important;*/
 }

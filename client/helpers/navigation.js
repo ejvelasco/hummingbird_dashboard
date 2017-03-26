@@ -5,7 +5,7 @@ Template.navigation.helpers({
   currentUserName: function(){
   	var name  = Meteor.user().profile.name;
   	var space = name.indexOf(' ');
-  	name = name.substring(0, space); 
+  	name = name.substring(0, space).toUpperCase(); 
   	return name;
   },
   currentUserEmail : function(){

@@ -48,6 +48,11 @@ Template.questionsPage.onCreated(function questionsPageOnCreated() {
   if(localStorage.studentId === undefined){
 	localStorage.studentId = uuidV4();
   }
+  $('#new-question-btn').fadeIn(300);
+  setTimeout(function(){
+  	$('#questions-container').fadeIn(4ls 00);
+  }, 200)
+  // $('#questions-container').fadeIn(300);
 });
 Template.questionsPage.helpers({
 	questions : function(){

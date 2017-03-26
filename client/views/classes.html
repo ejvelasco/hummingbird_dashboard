@@ -1,11 +1,13 @@
 <template name = "classes">
     {{> navigation }}
     <div id="classes-container">
-      <a onclick="this.blur();" id="new-class" data-toggle="collapse" href="#create-container" aria-expanded="false" aria-controls="create-container"><span class="glyphicon glyphicon-plus"></span> &nbsp; Create Class</a>
+      <h3 id="new-class" data-toggle="collapse" href="#create-container" aria-expanded="false" aria-controls="create-container">
+      <span class="glyphicon glyphicon-plus"></span> CREATE CLASS</h3>
+      
       <div  class="collapse" id="create-container">
         <div class="well">
           <div class="caption">
-            <a href="#" class="discard-create"><span class="glyphicon glyphicon-remove"></span></a>
+            <span class="glyphicon glyphicon-remove discard-create"></span>
             <input class="class-title-create" type="text" placeholder="Class Title">
             <textarea class="class-desc-create" placeholder="Class Description"></textarea>
             <button id="create" type="button" class="btn btn-primary" onclick="this.blur();"><span class="glyphicon glyphicon-plus"></span> &nbsp;Create</button>
@@ -16,18 +18,30 @@
         <div class="row">
             <div class="thumbnail" id='{{class._id}}'>
               <div class="caption">
-                <a href="#" class="delete control"><span class="glyphicon glyphicon-remove"></span></a>
-                <a href="#" class="edit control"><span class="glyphicon glyphicon-pencil"></span></a>
-                <p class="title">{{class.title}} <a class="lecture-count"><span class="glyphicon glyphicon-book small-icon"></span> LECTURES - {{class.lectures}}</a></p>
+                <span class="glyphicon glyphicon-remove delete control"></span>
+                <span class="glyphicon glyphicon-pencil edit control"></span>
+                <p class="title">{{class.title}}</p>
                 <p class="desc">{{class.desc}}</p>
                 {{#if class.updated}}
-                  <p class= "date">Updated on: {{class.updated}}</p>
+                  <p class= "date">Updated: {{class.updated}}</p>
                 {{else}}
-                  <p class= "date">Created on: {{class.date}}</p> 
+                  <p class= "date">Created: {{class.dateString}}</p> 
                 {{/if}}
+                <p class="lecture-count"> Lectures: {{class.lectures}}</p>
+                <!-- <span class="glyphicon glyphicon-book lecture-count"></span>  -->
               </div>
             </div>
         </div>
       {{/each}}
+      <div class="row" id="class-edit">
+      <div class="thumbnail">
+      <div class="caption">
+        <span class="glyphicon glyphicon-remove" id="class-edit-discard"></span>
+        <input id="class-title-update">
+        <input id="class-desc-update">
+        <input id="class-date-update">
+      </div>
+      </div>
+      </div>
     </div>
 </template>

@@ -2,6 +2,7 @@
 	font-size: 3em;
   font-family: 'Raleway', sans-serif;
   color: white !important;
+
 }
 .home{
   font-family: 'Raleway', sans-serif;
@@ -22,6 +23,7 @@
   margin: 0 auto;
   color: #BABABA;
   font-size: 1.3em;
+  border-radius: 7px;
 }
 #user-form input{
   height: 60px;
@@ -41,7 +43,7 @@
   display: none;
 }
 #user-form button{
-  background-color: #04DECB;
+  background-color: #a51c30;
   color: white;
   border: none;
   font-weight: bold;
@@ -50,7 +52,7 @@
   border-radius: 5px;
 }
 #user-form button:hover{
-  background-color: #04B9A9;
+  background-color: #841626;
 }
 #at-facebook{
   border-radius: 5px;
@@ -72,29 +74,40 @@ p {
 }
 #welcome-container{
   width: 100%;
-  height: 100%;
   position: absolute;
-  top: 0;
-  background: url("/img/bg-pattern.png"), #0E0B16;
-  background: url("/img/bg-pattern.png"), -webkit-linear-gradient(135deg, #0E0B16, #04B9A9);
-  background: url("/img/bg-pattern.png"), linear-gradient(135deg, #0E0B16, #04B9A9);
-  color: white;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  height: 100%;
   text-align: center;
+  top: 0;
+  background: url("/img/bg-pattern.png");
+  background: url("/img/bg-pattern.png"), -webkit-linear-gradient(135deg, #011A27, #DBDBDB);
+  background: url("/img/bg-pattern.png"), linear-gradient(135deg, #011A27, #405462);
+  background-color: #142C3E;
   z-index: -1;
   font-family: 'Raleway', sans-serif;
   transition: all .5s ease;
 }
-h1{
-  position: relative;
-  top: 40%;
-  transform: translateY(-50%); 
+#welcome-title{
   font-weight: 900;
-  font-size: 5em;
-}
-.blue{
-  color: #00FFE8 !important;
+  font-size: 4em;
+  color: white;
+  position: relative;
+  transform: translateY(-500%);
+  display: inline-block;
 }
 
+.marvel-device{
+  top: 10%;
+  transform: scale(.7);
+  -webkit-box-reflect: below 0px
+  -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(90%, transparent) , to(rgba(250, 250, 250, 0.15)));
+}
+.screen{
+  background: url('/img/screen.jpeg');
+  background-size: cover;
+}
 @media only screen and (max-width: 800px) {
   h1{
     text-align: left;
@@ -103,5 +116,29 @@ h1{
   }
   #user-form{
     width: 80%;
+  }
+  .marvel-device{
+    display: none !important;
+  }
+  .logo-img{
+    display: none;
+  }
+  #welcome-title{
+  font-weight: 900;
+  font-size: 3em;
+  color: white;
+  top: 125% !important;
+  display: inline-block;
+  text-align: left;
+  padding-left: 20px;
+  }
+  #navigation-welcome{
+    padding: 15px !important;
+  }
+  .navbar-brand{
+    font-size: 1.7em !important;
+  }
+  #sign-in{
+    margin-top: 10px;
   }
 }

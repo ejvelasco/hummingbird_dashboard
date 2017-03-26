@@ -301,4 +301,10 @@ body{
  	   .comment-date{
  	   	margin-left: 4%;
  	   }
+ 	   #wolfram-response{
+ 	   	width: 90%;
+ 	   }
+ 	   .response-row img{
+ 	   	width: 90%;
+ 	   }
 }

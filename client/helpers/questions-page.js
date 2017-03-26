@@ -2,6 +2,7 @@ var questionText, questionId, questionDate, questions, currentDate, currentDate,
 var uuidV4 = require('uuid/v4');
 var starredByUser = [];
 var newQuestionId;
+var re;
 starredByUser = document.cookie;
 idx = starredByUser.indexOf('=');
 starredByUser = starredByUser.substring(idx+1, starredByUser.length).split(',');
@@ -52,10 +53,6 @@ Template.questionsPage.onCreated(function questionsPageOnCreated() {
   setTimeout(function(){
   	$('#questions-container').fadeIn(400);
   }, 200);
-  $.get( "/query", function( data) {
-    console.log(data);
-  });
-
 });
 Template.questionsPage.helpers({
 	questions : function(){
@@ -176,6 +173,21 @@ Template.questionsPage.events({
 		newQuestionId = $(event.currentTarget.parentNode.parentNode.parentNode).attr('id');
 		commentId = $(event.currentTarget.parentNode).attr('id');
 		Meteor.call('Questions.deleteComment', {id: newQuestionId, commentId: commentId});
+	}, 
+	'click #wolfram-logo':function(event){
+		re  = new RegExp('/', 'g');
+		questionText = encodeURIComponent($('#question-input').val());
+		$('#questions-page-spinner').fadeIn('fast');
+		$.get( "/queryWolfram/"+questionText, function(data) {
+		  var responseObjs = JSON.parse(data);
+		  for(obj in responseObjs){
+		  		$('#responses-container').append('<p>'+responseObjs[obj].title+'</p>');
+		  		$('#responses-container').append('<img src="'+responseObjs[obj].subpods[0].image+'">')
+		  		// console.log(responseObjs[obj].subpods[0].image);
+		  }
+		  $('#wolfram-response').fadeIn('slow');
+		  $('.collapse').collapse('hide');
+		  $('#questions-page-spinner').fadeOut('fast');
+		});
 	}
-
 });

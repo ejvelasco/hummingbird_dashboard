@@ -1,11 +1,14 @@
 <template name="questionsPage">
 <div id="questions-page-container">
 {{>navigationStudent}}
+<div id="questions-page-spinner">
+{{> spinner}}
+</div>
 <div  class="collapse" id="new-question-ask">
   <div class="well">
     <div class="caption">
       <span id="discard-new-question" class="glyphicon glyphicon-remove"></span>
-      <input id="question-input" type="text" placeholder="What would you like to ask?">
+      <input id="question-input" type="text" placeholder="What would you like to ask?"><img src="/img/wolfram-logo.png" id="wolfram-logo">
       <button id="new-question-submit" type="button" class="btn btn-primary" onclick="this.blur();">Ask</button>
     </div>
   </div>
@@ -77,6 +80,11 @@
         	<button id="question-edit-submit" type="button" class="btn btn-primary" onclick="this.blur();">Update</button>
         </div>
       </div>
+  </div>
+  <div id="wolfram-response">
+    <div id="responses-container">
+      
+    </div>
   </div>
   <div class = "mask"></div>
   </div>

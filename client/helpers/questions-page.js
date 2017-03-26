@@ -131,8 +131,10 @@ Template.questionsPage.events({
 	},
 	'click .mask': function(event){
 		$('#question-edit').fadeOut(300);
+		$('#wolfram-response').fadeOut(300);
 		$('.mask').fadeOut(300);
 		setTimeout(function(){
+			$('#question-input').val('');
 			$('#question-edit-input').val('');
 		}, 500);
 	}, 
@@ -181,13 +183,21 @@ Template.questionsPage.events({
 		$.get( "/queryWolfram/"+questionText, function(data) {
 		  var responseObjs = JSON.parse(data);
 		  for(obj in responseObjs){
-		  		$('#responses-container').append('<p>'+responseObjs[obj].title+'</p>');
-		  		$('#responses-container').append('<img src="'+responseObjs[obj].subpods[0].image+'">')
+		  		$('#responses-container').append('<div class="response-row"><p>'+responseObjs[obj].title+':</p><img src="'+responseObjs[obj].subpods[0].image+'"></div>')
 		  		// console.log(responseObjs[obj].subpods[0].image);
 		  }
-		  $('#wolfram-response').fadeIn('slow');
+		  $('.mask').fadeIn(500);
+		  $('#wolfram-response').fadeIn(500);
 		  $('.collapse').collapse('hide');
 		  $('#questions-page-spinner').fadeOut('fast');
 		});
+	},
+	'click #wolfram-response-discard': function(event){
+		$('#wolfram-response').fadeOut(300);
+		$('.mask').fadeOut(300);
+		setTimeout(function () {
+			$('#responses-container').html('');
+			$('#question-input').val('');
+		}, 300)
 	}
 });

@@ -51,8 +51,11 @@ Template.questionsPage.onCreated(function questionsPageOnCreated() {
   $('#new-question-btn').fadeIn(400);
   setTimeout(function(){
   	$('#questions-container').fadeIn(400);
-  }, 200)
-  // $('#questions-container').fadeIn(300);
+  }, 200);
+  $.get( "/query", function( data) {
+    console.log(data);
+  });
+
 });
 Template.questionsPage.helpers({
 	questions : function(){

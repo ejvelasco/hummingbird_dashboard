@@ -251,7 +251,6 @@ body{
 	margin-bottom: 10px;
 }
 @media only screen and (max-width: 800px) {
- 	   .nav
  	   #question-edit input{
  	   	width: 100%;
  	   }

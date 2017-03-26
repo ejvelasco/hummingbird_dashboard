@@ -30,3 +30,9 @@
 	margin: 5px;
 	border: none;
 }
+@media only screen and (max-width: 800px) {
+	#resources-container{
+		margin-top: 20px !important;
+		width: 84%;
+	}
+}

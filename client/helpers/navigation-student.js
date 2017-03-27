@@ -8,5 +8,8 @@ Template.navigationStudent.helpers({
 		Session.set("lectureTitle", lectureObj.title);
 		Session.set("lectureId", lectureObj._id);
 		return lectureObj; 
+	},
+	questionsPage: function(){
+		return Session.get('questionsPage');
 	}
 });

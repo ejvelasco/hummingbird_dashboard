@@ -14,9 +14,11 @@
             <ul class="nav navbar-nav navbar-left">
                  <li><a href='resources' id="resources"><span class="glyphicon glyphicon-bookmark crimson" aria-hidden="true"></span> &nbsp; RESOURCES</a></li>
             </ul>
+            {{#if questionsPage}}
             <ul class="nav navbar-nav navbar-right">
                 <li><button type="button" class="btn btn-success" id="new-question-btn" onclick="this.blur();" data-toggle="collapse" href="#new-question-ask" aria-expanded="false" aria-controls="new-question-ask"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> &nbsp; New Question</button></li>
             </ul>
+            {{/if}}
         </div>
         </div>
 	</nav>

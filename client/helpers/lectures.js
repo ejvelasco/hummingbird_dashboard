@@ -4,6 +4,9 @@ Template.lectures.onCreated(function lecturesOnCreated() {
   Meteor.subscribe('lectures');
   document.title = "HB - Lectures";
 });
+Template.lectures.onRendered(function lecturesOnRendered(){
+	$('#lectures-container').fadeIn(600);
+});
 Template.lectures.helpers({
 	classObj : function(){
 		classObj = UI.getData();

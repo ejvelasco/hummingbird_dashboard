@@ -1,14 +1,60 @@
-.welcome{
-	font-size: 3em;
-  font-family: 'Raleway', sans-serif;
-  color: white !important;
+/*Welcome Page Container */
 
-}
-.home{
+#welcome-container{
+  overflow: hidden;
+  width: 100%;
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  height: 100%;
+  top: 0;
+  background: url("/img/bg-pattern.png");
+  background: url("/img/bg-pattern.png"), -webkit-linear-gradient(135deg, #011A27, #DBDBDB);
+  background: url("/img/bg-pattern.png"), linear-gradient(135deg, #011A27, #405462);
+  background-color: #142C3E;
+  z-index: -1;
   font-family: 'Raleway', sans-serif;
-  font-size: 2.2em;
-  color: #428bca !important;
+  transition: all .5s ease;
 }
+
+/*Welcome Content*/
+
+#welcome-title{
+  display: none;
+  font-weight: 900;
+  font-size: 3em;
+  text-align: center;
+  margin-left: 25%;
+  color: white;
+  margin-top: 350px;
+  position: relative;
+  width: 35%;
+}
+#welcome-message{
+  display: none;
+  margin-left: 25%;
+  width: 35%;
+  text-align: justify;
+  color: white;
+  font-size: 1.4em;
+  line-height: 1.8;
+}
+.marvel-device{
+  display: none;
+  position: absolute !important;
+  transform: scale(.7);
+  top: 100px !important;
+  left: 60%;
+  -webkit-box-reflect: below 0px
+  -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(90%, transparent) , to(rgba(250, 250, 250, 0.15)));
+}
+.screen{
+  background: url('/img/screen.jpeg');
+  background-size: cover;
+}
+
+/*Login/Register Form */
 
 #user-form{
   display: none;
@@ -24,6 +70,7 @@
   color: #BABABA;
   font-size: 1.3em;
   border-radius: 7px;
+  font-family: 'Raleway', sans-serif;
 }
 #user-form input{
   height: 60px;
@@ -50,6 +97,8 @@
   transition: all .3s ease;
   height: 60px;
   border-radius: 5px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
 }
 #user-form button:hover{
   background-color: #841626;
@@ -59,106 +108,37 @@
   font-weight: bold;
   height: 60px;
 }
-.btn-outline {
-    background-color: transparent;
-    color: #2D5E88;
-    transition: all .5s ease;
-}
-p {
-  line-height: 1.8;
-}
-#welcome-container{
-  overflow: hidden;
-}
-#welcome-container{
-  width: 100%;
-  position: absolute;
-  right: 0;
-  left: 0;
-  margin: 0 auto;
-  height: 100%;
-  /*text-align: center;*/
-  top: 0;
-  background: url("/img/bg-pattern.png");
-  background: url("/img/bg-pattern.png"), -webkit-linear-gradient(135deg, #011A27, #DBDBDB);
-  background: url("/img/bg-pattern.png"), linear-gradient(135deg, #011A27, #405462);
-  background-color: #142C3E;
-  z-index: -1;
-  font-family: 'Raleway', sans-serif;
-  transition: all .5s ease;
-}
-#welcome-title{
-  font-weight: 900;
-  font-size: 3em;
-  text-align: center;
-  margin-left: 25%;
-  color: white;
-  margin-top: 350px;
-  position: relative;
-  width: 35%;
-  /*display: inline-block;*/
-}
 
-.marvel-device{
-  /*float: right;*/
-  position: absolute !important;
-  transform: scale(.7);
-  top: 100px !important;
-  left: 60%;
-  -webkit-box-reflect: below 0px
-  -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(90%, transparent) , to(rgba(250, 250, 250, 0.15)));
-}
-.screen{
-  background: url('/img/screen.jpeg');
-  background-size: cover;
-}
-#welcome-message{
-  margin-left: 25%;
-  width: 35%;
-  text-align: justify;
-  color: white;
-  font-size: 1.4em;
-}
+/*Mobile*/
+
 @media only screen and (max-width: 800px) {
-  h1{
-    text-align: left;
-    margin-left: 30px;
-    font-size: 4em;
-  }
-  #user-form{
-    width: 80%;
-  }
-  .marvel-device{
-    display: none !important;
-  }
-  .logo-img{
-    display: none;
-  }
-  #welcome-title{
-  width: 90%;
-  top: 20%;
-  font-size: 2em !important;
-  margin: 0 auto;
-  }
+  /*Adjust Content*/
   #welcome-message{
     width: 80%;
     position: absolute;
     right: 0;
     left: 0;
-    font-size: 1.3em !important;
-    top: 28% !important;
+    font-size: 1.1em !important;
+    top: 26% !important;
     margin: 0 auto;
   }
   #welcome-title{
     font-size: 3em;
+    width: 90%;
+    top: 20%;
+    font-size: 1.5em !important;
+    margin: 0 auto;
   }
-  #navigation-welcome{
-    padding: 15px !important;
+  /*Expand form*/
+  #user-form{
+    width: 80%;
   }
-  .navbar-brand{
-    font-size: 1.7em !important;
+  #user-form button{
+    font-size: .6em;
+    letter-spacing: 1px;
   }
-  #sign-in{
-    margin-top: 10px;
+  /*Hide phone*/
+  .marvel-device{
+    display: none !important;
   }
 }

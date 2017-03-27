@@ -1,27 +1,5 @@
-.thumbnail{
-	display: block;
-	width: 50%;
-	margin: 0 auto;
-	margin-top: 20px;
-	background-color: white;
-}
-.date{
-	font-size: .9em;
-	color: #BABABA;
-}
-.thumbnail .control{
-	position: relative;
-	text-decoration: none;
-	top: 0px;
-	left: 95%; 
-	margin-right: 15px;
-}
-.well a{
-	position: relative;
-	text-decoration: none;
-	top: 0px;
-	left: 98%;
-}
+/*background*/
+
 #classes-bg{
 	height: 100%;
 	width: 100%;
@@ -36,30 +14,20 @@
 	  #E3E3E3 1280px
 	);
 }
+
+/*classes container*/
+
 #classes-container{
 	width: 100%;
+	display: none;
 	position: absolute !important;
 	margin: 0 !important;
 	padding: 0 !important;
 	top: 80px !important;
 }
-#new-class{
-	cursor: pointer;
-	display: block;
-	text-align: center;
-	font-size: 1.2em;
-	padding-top: 10px;
-	letter-spacing: 4px;
-	padding-bottom: 10px;
-	transition: all.3s ease;
-	color: #142C3E;
-}
-.well{
-	width: 50.5%;
-	margin: 0 auto;
-	background-color: #CCD4D5;
-	border: none;
-}
+
+/*input and textarea content*/
+
 #classes-container input, #classes-container textarea{
 	width: 80%;
 	display: block;
@@ -71,9 +39,61 @@
 	border-color: #142C3E !important;
 	outline: none;
 }
+
+/*edit some input styles*/
+
 #classes-container input{
 	border: none;
 	border-bottom: solid 1px;
+}
+
+/*new class btn*/
+
+#new-class{
+	cursor: pointer;
+	display: block;
+	text-align: center;
+	font-size: 1.2em;
+	font-family: 'Raleway', sans-serif;
+	font-weight: bold;
+	padding-top: 20px;
+	letter-spacing: 4px;
+	padding-bottom: 10px;
+	transition: all.3s ease;
+	color: #142C3E;
+}
+
+/*class to be content*/
+
+.well{
+	width: 50.5%;
+	margin: 0 auto;
+	background-color: #CCD4D5;
+	border: none;
+	font-family: 'Raleway', sans-serif;
+}
+.well input, .well textarea{
+	margin-bottom: 20px !important;
+}
+
+/*classes content*/
+
+.thumbnail{
+	cursor: pointer;
+	display: block;
+	width: 50%;
+	margin: 0 auto;
+	margin-top: 20px;
+	font-family: 'Raleway', sans-serif;
+	background-color: white;
+}
+/*edit/delete btns*/
+.thumbnail .control{
+	position: relative;
+	text-decoration: none;
+	top: 0px;
+	left: 95%; 
+	margin-right: 15px;
 }
 .caption{
 	width: 95%;
@@ -91,17 +111,18 @@
 	font-size: 1.1em;
 	font-weight: bold;
 	float: left;
-	/*display: inline-block;*/
-	/*margin-left: 7.5%;*/
-	/*width: 20%;*/
+	font-family: 'Helvetica';
 	margin-top: 35px;
-	/*margin-bottom: 10px !important;*/
 }
 .lecture-count{
 	font-size: 1.1em;
 	font-weight: bold;
+	font-family: 'Helvetica';
 	display: inline-block;
 	width: 20%;
+	margin-left: 10%;
+	padding: 10px;
+	padding-left: 0;
 }
 .caption .title{
 	font-size: 1.7em;
@@ -118,35 +139,24 @@
 .caption .title:hover{
 	color: #BABABA;
 }
-.well input, .well textarea{
-	margin-bottom: 20px !important;
-}
+
+/*create and update buttons*/
+
 #create, #update{
 	margin-left: 10%;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	background-color: #142C3E;
 	font-weight: bold;
-	/*font-size: 1.1em;*/
 	border: none;
 	transition: all .3s ease;
 }
 #create:hover, .update:hover{
 	background-color: #6D7880;
 }
-.thumbnail{
-	cursor: pointer;
-}
-.lecture-count{
-	margin-left: 10%;
-	padding: 10px;
-	padding-left: 0;
-}
-.lecture-msg{
-	display: inline-block;
-	font-weight: bolder;
-	font-size: .9em;
-}
+
+/*class edit content*/
+
 #class-edit{
 	position: absolute;
 	right: 0;
@@ -161,16 +171,22 @@
 	margin-bottom: 20px;
 	color: black !important;
 }
+
+/*Mobile*/
+
 @media only screen and (max-width: 800px) {
-  .title{
-  	float: left;
-  }
   #navigation-default{
   	z-index: 1;
   }
+  /*hide discard btn*/
   .discard-create{
   	display: none !important;
   }
+  /*adjsut title*/
+  .title{
+  	float: left;
+  }
+  /*adjust content*/
   .caption .desc{
   	float: left;
   	display: block;

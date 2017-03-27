@@ -1,14 +1,22 @@
+//declare variables
 var classTitle, classDesc, parentId, grandParentObj, parentClass,id, date, classInfo, originalHeight, lectureCount;
-
+//on created
 Template.classes.onCreated(function classesOnCreated() {
-  Meteor.subscribe('classes');
-  document.title = "HB - Classes";
+	//subscribe to classes collection
+	Meteor.subscribe('classes');
+	//set title
+	document.title = "HB - Classes";
 });
-
+//on rendered
+Template.classes.onRendered(function classesOnRendered(){
+	//fade in effect
+	$('#classes-container').fadeIn(600);
+});
+//helpers
 Template.classes.helpers({
 	classes : function(){
-		return Classes.find({}, {sort: {date: -1}}).fetch();
-
+		//return classes and sort by date
+		return Classes.find({}, {sort: {date: -1}});
 	}
 });
 Template.classes.events({

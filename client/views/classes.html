@@ -2,48 +2,46 @@
     {{> navigation }}
     <div id="classes-bg"></div>
     <div id="classes-container">
-      <h3 id="new-class" data-toggle="collapse" href="#create-container" aria-expanded="false" aria-controls="create-container">
-      <span class="glyphicon glyphicon-plus"></span> CREATE CLASS</h3>
-      
-      <div  class="collapse" id="create-container">
-        <div class="well">
-          <div class="caption">
-            <span class="glyphicon glyphicon-remove discard-create"></span>
-            <input class="class-title-create" type="text" placeholder="Class Title">
-            <textarea class="class-desc-create" placeholder="Class Description"></textarea>
-            <button id="create" type="button" class="btn btn-primary" onclick="this.blur();"><span class="glyphicon glyphicon-plus"></span> &nbsp;Create</button>
-          </div>
-        </div>
-      </div>
-      {{#each class in classes}}
-        <div class="row">
-            <div class="thumbnail" id='{{class._id}}'>
-              <div class="caption">
-                <span class="glyphicon glyphicon-remove delete control"></span>
-                <span class="glyphicon glyphicon-pencil edit control"></span>
-                <p class="title">{{class.title}}</p>
-                <p class="desc">{{class.desc}}</p>
-                {{#if class.updated}}
-                  <p class= "date">Updated: {{class.updated}}</p>
-                {{else}}
-                  <p class= "date">Created: {{class.dateString}}</p> 
-                {{/if}}
-                <p class="lecture-count"> Lectures: {{class.lectures}}</p>
-                <!-- <span class="glyphicon glyphicon-book lecture-count"></span>  -->
-              </div>
+        <h3 id="new-class" data-toggle="collapse" href="#create-container" aria-expanded="false" aria-controls="create-container">
+        <span class="glyphicon glyphicon-plus"></span> CREATE CLASS</h3>
+        <div  class="collapse" id="create-container">
+            <div class="well">
+                <div class="caption">
+                    <span class="glyphicon glyphicon-remove discard-create"></span>
+                    <input class="class-title-create" type="text" placeholder="Class Title">
+                    <textarea class="class-desc-create" placeholder="Class Description"></textarea>
+                    <button id="create" type="button" class="btn btn-primary" onclick="this.blur();"><span class="glyphicon glyphicon-plus"></span> &nbsp;Create</button>
+                </div>
             </div>
         </div>
-      {{/each}}
-      <div class="row" id="class-edit">
-      <div class="thumbnail">
-      <div class="caption">
-        <span class="glyphicon glyphicon-remove delete control discard-edit"></span>
-        <input id="class-title-update">
-        <textarea id="class-desc-update"></textarea>
-        <button id="update" type="button" class="btn btn-primary" onclick="this.blur();">Update</button>
-      </div>
-      </div>
-      </div>
+        {{#each class in classes}}
+            <div class="row">
+                <div class="thumbnail" id='{{class._id}}'>
+                    <div class="caption">
+                        <span class="glyphicon glyphicon-remove delete control"></span>
+                        <span class="glyphicon glyphicon-pencil edit control"></span>
+                        <p class="title">{{class.title}}</p>
+                        <p class="desc">{{class.desc}}</p>
+                        {{#if class.updated}}
+                            <p class= "date">Updated: {{class.updated}}</p>
+                        {{else}}
+                            <p class= "date">Created: {{class.dateString}}</p> 
+                        {{/if}}
+                        <p class="lecture-count"> Lectures: {{class.lectures}}</p>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+        <div class="row" id="class-edit">
+            <div class="thumbnail">
+                <div class="caption">
+                    <span class="glyphicon glyphicon-remove delete control discard-edit"></span>
+                    <input id="class-title-update">
+                    <textarea id="class-desc-update"></textarea>
+                    <button id="update" type="button" class="btn btn-primary" onclick="this.blur();">Update</button>
+                </div>
+            </div>
+        </div>
     </div>
     <div class = "mask"></div>
 </template>

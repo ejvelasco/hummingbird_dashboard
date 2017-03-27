@@ -59,6 +59,7 @@ logging@1.1.17
 meteor@1.6.1
 meteor-base@1.0.4
 meteor-platform@1.2.6
+meyerweb-reset@1.0.7
 minifier-css@1.2.16
 minifier-js@1.2.18
 minimongo@1.0.21

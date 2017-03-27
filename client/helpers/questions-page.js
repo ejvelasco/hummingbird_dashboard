@@ -44,15 +44,14 @@ function formatTime(duration) {
     return datePosted;
 }
 Template.questionsPage.onCreated(function questionsPageOnCreated() {
-  loadingTemplate: 'loading',
   document.title = "Questions - Live";
+  Session.set("questionsPage", true);
   if(localStorage.studentId === undefined){
 	localStorage.studentId = uuidV4();
   }
-  $('#new-question-btn').fadeIn(400);
-  setTimeout(function(){
-  	$('#questions-container').fadeIn(400);
-  }, 200);
+});
+Template.questionsPage.onRendered(function questionsPageOnRendered(){
+	$('#questions-container').fadeIn(400);
 });
 Template.questionsPage.helpers({
 	questions : function(){

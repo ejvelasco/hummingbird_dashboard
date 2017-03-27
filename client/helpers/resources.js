@@ -1,6 +1,7 @@
 Template.resources.onRendered(function resourcesOnCreated() {
   loadingTemplate: 'loading',
-  document.title = "Resources";
+  document.title = "Lecture Resources";
+  Session.set('questionsPage', false);
   if(localStorage.studentId === undefined){
 	localStorage.studentId = uuidV4();
   }
@@ -28,10 +29,3 @@ Template.resources.onRendered(function resourcesOnCreated() {
   });
 
 });
-// });
-// Template.resources.events({
-// 	'mouseenter .video-container':function(event){
-// 		var videoId = $(event.currentTarget).attr('id');
-// 		$('#'+videoId+' p').fadeIn(300);
-// 	},
-// })

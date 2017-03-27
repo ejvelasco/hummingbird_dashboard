@@ -11,6 +11,9 @@
 #navigation-default{
   background-color: #A51C30;
   border: none;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
   border-radius: 0px;
   font-family: 'Raleway', sans-serif;
   padding-left: 30px;
@@ -91,6 +94,10 @@
 @media only screen and (max-width: 800px) {
     #navigation-welcome{
       background-color: #A51C30;
+      padding: 15px !important;
+    }
+    .navbar-nav{
+      background-color: #A51C30;
     }
     .navbar-brand,
     .navbar-nav li a {
@@ -100,12 +107,15 @@
         padding: 10px;
         padding-top: 0px;
     }
+    .navbar-brand{
+      font-size: 1.7em !important;
+    }
     #sign-in{
-      margin-top: 0px;
+      margin-top: 10px;
       border: none;
     }
-    .navbar-nav{
-      background-color: #A51C30;
+    .logo-img{
+      display: none;
     }
 }
 .navbar-toggle{

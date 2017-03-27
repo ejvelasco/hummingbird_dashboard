@@ -6,11 +6,14 @@
 	display: block;
 	text-align: center;
 	font-size: 1.2em;
-	padding-top: 10px;
+	padding-top: 20px;
 	letter-spacing: 4px;
 	padding-bottom: 10px;
 	transition: all.3s ease;
 	color: #142C3E;
+}
+#lectures-container{
+	display: none;
 }
 #lectures-bg{
 	width: 100%;

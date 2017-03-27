@@ -182,6 +182,7 @@ Template.questionsPage.events({
 		$('#questions-page-spinner').fadeIn('fast');
 		$.get( "/queryWolfram/"+questionText, function(data) {
 		  var responseObjs = JSON.parse(data);
+		  $('#responses-container').html('');
 		  for(obj in responseObjs){
 		  		$('#responses-container').append('<div class="response-row"><p>'+responseObjs[obj].title+':</p><img src="'+responseObjs[obj].subpods[0].image+'"></div>')
 		  		// console.log(responseObjs[obj].subpods[0].image);

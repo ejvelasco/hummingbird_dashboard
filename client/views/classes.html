@@ -36,12 +36,13 @@
       <div class="row" id="class-edit">
       <div class="thumbnail">
       <div class="caption">
-        <span class="glyphicon glyphicon-remove delete control"></span>
+        <span class="glyphicon glyphicon-remove delete control discard-edit"></span>
         <input id="class-title-update">
-        <input id="class-desc-update">
-        <input id="class-date-update">
+        <textarea id="class-desc-update"></textarea>
+        <button id="update" type="button" class="btn btn-primary" onclick="this.blur();">Update</button>
       </div>
       </div>
       </div>
     </div>
+    <div class = "mask"></div>
 </template>

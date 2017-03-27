@@ -118,7 +118,7 @@
 .well input, .well textarea{
 	margin-bottom: 20px !important;
 }
-#create, .update{
+#create, #update{
 	margin-left: 10%;
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -143,6 +143,20 @@
 	display: inline-block;
 	font-weight: bolder;
 	font-size: .9em;
+}
+#class-edit{
+	position: absolute;
+	right: 0;
+	left: 0;
+	top: 30%;
+	margin: 0 auto;
+	width: 100%;
+	display: none;
+	z-index: 4;
+}
+#class-edit input, #class-edit textarea{
+	margin-bottom: 20px;
+	color: black !important;
 }
 @media only screen and (max-width: 800px) {
   .lecture-count{

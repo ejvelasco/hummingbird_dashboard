@@ -35,9 +35,27 @@ Template.classes.events({
 		classTitle = $(parentId+' .title').text();
 		classDesc = $(parentId+' .desc').text();
 		date = $(parentId+' .date').text();
+		$('#class-title-update').val(classTitle);
+		$('#class-desc-update').text(classDesc);
+		$('.mask').fadeIn(300);
+		$('#class-edit').fadeIn(300);
+
 	},
 	'click .discard-edit': function(){
-		
+		$('#class-edit').fadeOut(300);
+		$('.mask').fadeOut(400);
+		setTimeout(function(){
+			$('#class-title-update').val('');
+			$('#class-desc-update').text('');
+		});
+	},
+	'click .mask': function(){
+		$('#class-edit').fadeOut(300);
+		$('.mask').fadeOut(400);
+		setTimeout(function(){
+			$('#class-title-update').val('');
+			$('#class-desc-update').text('');
+		}, 400);
 	},
 	'click .delete': function(event){
 		parentId = '#'+(event.currentTarget.parentNode).parentNode.getAttribute('id');
@@ -48,12 +66,17 @@ Template.classes.events({
 		});
 
 	},
-	'click .update': function(event){
-		parentId = '#'+(event.currentTarget.parentNode).parentNode.getAttribute('id');
-		parentClass = '.'+event.currentTarget.parentNode.getAttribute('class');
-		classTitle = $(parentId+' .class-title').val();
-		classDesc = $(parentId+' .class-desc').val();
-		// Meteor.call('Classes.update', {id: id, title: classTitle, desc: classDesc});
+	'click #update': function(event){
+		classTitle = $('#class-title-update').val();
+		classDesc = $('#class-desc-update').val();
+		$('#class-edit').fadeOut(300);
+		$('.mask').fadeOut(400);
+		id = parentId.replace(/#/g, '');
+		setTimeout(function(){
+			$('#class-title-update').val('');
+			$('#class-desc-update').text('');
+		}, 400);
+		Meteor.call('Classes.update', {id: id, title: classTitle, desc: classDesc});
 	}, 
 	'click .caption .title': function(event){
 		parentId = (event.currentTarget.parentNode).parentNode.getAttribute('id');

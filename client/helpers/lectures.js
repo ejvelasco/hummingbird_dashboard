@@ -1,5 +1,5 @@
 //declare variables
-var lectureTitle, lectureDesc, classObj, dateEntered, parentClasses, lectureId, lectureObjs, longurl; 
+var lectureTitle, lectureDesc, classObj, dateEntered, parentClasses, lectureId, lectureObjs; 
 //on created
 Template.lectures.onCreated(function lecturesOnCreated() {
 	//subscribe to collections

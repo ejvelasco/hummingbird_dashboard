@@ -7,9 +7,9 @@ Template.welcome.events({
 		$('.mask').fadeOut(300);;
 	},
 });
-Accounts.onLogout(function(){
-	Router.go('/');
-});
-Accounts.onLogin(function(){
-	Router.go('/classes');
-})
+// Accounts.onLogout(function(){
+// 	Router.go('/');
+// });
+// Accounts.onLogin(function(){
+// 	Router.go('/classes');
+// })

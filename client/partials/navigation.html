@@ -20,11 +20,11 @@
             {{#if currentUser.profile.name}}
             <a id="dd-control"><span class="glyphicon glyphicon-menu-down crimson" aria-expanded="false"></span> SIGNED IN AS {{currentUserName}} </a>
             {{else}}
-            <a id="dd-control"><span class="glyphicon glyphicon-menu-down crimson" aria-expanded="false"></span> SIGNED IN AS {{currentUserEmail}} </a>
+            <a id="dd-control"><span class="glyphicon glyphicon-menu-down crimson" aria-expanded="false"></span> SIGNED IN AS: {{currentUserEmail}} </a>
             {{/if}}
             </li>
             <ul class="dropdown-menu collapse dd-control" id="dd">
-            <li><a href="#" class='sign-out'><span class="glyphicon glyphicon-share-alt blue"></span> Sign Out</a></li>
+            <li><a href="#" class='sign-out'>Sign Out</a></li>
             </ul>      
 	     	</ul>
     	</div>

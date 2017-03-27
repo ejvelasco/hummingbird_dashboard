@@ -58,7 +58,7 @@
 }
 .dropdown-menu {
   background-color: #F8F8F8;
-  width: 265px;
+  width: 300px;
 }
 .open{
   background-color: #414242 !important;
@@ -81,7 +81,7 @@
   background-color: #5C0C18;
 }
 .dropdown-menu li .sign-out:hover{
-  color: red !important;
+  color: #A51C30 !important;
   margin-left: 20px;
   background-color: #F8F8F8 !important;
 }
@@ -96,10 +96,9 @@
     .navbar-nav li a {
         line-height: 80px;
         height: 80px;
-        font-size: 2.5em !important;
+        font-size: .9em !important;
         padding: 10px;
         padding-top: 0px;
-        background-color: #A51C30;
     }
     #sign-in{
       margin-top: 0px;

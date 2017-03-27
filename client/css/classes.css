@@ -29,7 +29,13 @@
 	margin: 0 !important;
 	padding: 0 !important;
 	top: 80px !important;
-	background-color: #142C3E;
+	background: repeating-linear-gradient(
+	  45deg,
+	  #F0F0F0,
+	  #F0F0F0 640px,
+	  #E3E3E3 640px,
+	  #E3E3E3 1280px
+	);
 }
 #new-class{
 	cursor: pointer;
@@ -40,15 +46,15 @@
 	letter-spacing: 4px;
 	padding-bottom: 10px;
 	transition: all.3s ease;
-	color: #808AA9;
+	color: #142C3E;
 }
 #new-class:hover{
-	color: #BABABA;
+	color: #8996A0;
 }
 .well{
 	width: 50.5%;
 	margin: 0 auto;
-	background-color: white;
+	background-color: #CCD4D5;
 	border: none;
 }
 #classes-container input, #classes-container textarea{
@@ -57,13 +63,14 @@
 	padding: 10px;
 	margin: 0 auto;
 	font-size: 1.3em;
-	border: solid 2px;
-	border-color: #BABABA !important;
+	border: solid 1px;
+	background-color: transparent;
+	border-color: #142C3E !important;
 	outline: none;
 }
 #classes-container input{
 	border: none;
-	border-bottom: solid 2px;
+	border-bottom: solid 1px;
 }
 .caption{
 	width: 95%;
@@ -75,14 +82,15 @@
 	padding: 0 !important;
 	width: 85%;
 	margin: 0 auto;
-	color: #736861;
+	color: black;
 }
 .caption .date{
 	font-size: 1.1em;
 	font-weight: bold;
-	display: inline-block;
+	float: left;
+	/*display: inline-block;*/
 	/*margin-left: 7.5%;*/
-	width: 20%;
+	/*width: 20%;*/
 	margin-top: 35px;
 	/*margin-bottom: 10px !important;*/
 }
@@ -97,8 +105,8 @@
 	font-weight: bold;
 	border-bottom: solid 2px;
 	transition: all .3s ease;
-	color: #736861;
-	border-color: #736861;
+	color: black;
+	border-color: black;
 }
 .caption .desc{
 	margin-top: 10px;
@@ -114,7 +122,7 @@
 	margin-left: 10%;
 	margin-top: 10px;
 	margin-bottom: 10px;
-	background-color: #8996A0;
+	background-color: #142C3E;
 	font-weight: bold;
 	/*font-size: 1.1em;*/
 	border: none;
@@ -123,9 +131,6 @@
 #create:hover, .update:hover{
 	background-color: #6D7880;
 }
-#class-edit{
-	display: none;
-}
 .thumbnail{
 	cursor: pointer;
 }
@@ -133,18 +138,34 @@
 	margin-left: 10%;
 	padding: 10px;
 	padding-left: 0;
-	color: #736861;
 }
 .lecture-msg{
 	display: inline-block;
 	font-weight: bolder;
 	font-size: .9em;
-	color: #736861;
 }
 @media only screen and (max-width: 800px) {
   .lecture-count{
   }
   .title{
   	float: left;
+  }
+  #navigation-default{
+  	z-index: 1;
+  }
+  .discard-create{
+  	display: none !important;
+  }
+  .caption .desc{
+  	float: left;
+  	display: block;
+  	margin-bottom: 0px !important;
+  }
+  .caption .date{
+  	width: 50%;
+  }
+  .thumbnail .control{
+  	position: relative;
+  	left: 85%;
   }
 }

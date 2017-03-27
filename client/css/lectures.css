@@ -1,20 +1,23 @@
-.hidden{
+body {
+	overflow-x: hidden;
+}
+
+/*mask used in lectures, classes, and questions page*/
+
+.mask{
 	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: black;
+	opacity: .7;
+	z-index: 3;
 }
-#new-lecture{
-	cursor: pointer;
-	display: block;
-	text-align: center;
-	font-size: 1.2em;
-	padding-top: 20px;
-	letter-spacing: 4px;
-	padding-bottom: 10px;
-	transition: all.3s ease;
-	color: #142C3E;
-}
-#lectures-container{
-	display: none;
-}
+
+/*lectures background*/
+
 #lectures-bg{
 	width: 100%;
 	height: 100%;
@@ -29,47 +32,63 @@
 	  #E3E3E3 1280px
 	);
 }
-body {
-	overflow-x: hidden;
-}
-.mask{
-	display: none;
-	position: fixed;
+
+/*lectures container*/
+
+#lectures-container{
 	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	background-color: black;
-	opacity: .7;
-	z-index: 3;
+	display: none;
+	position: absolute !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	top: 80px !important;
+}
+
+/*new lecture button*/
+
+#new-lecture{
+	cursor: pointer;
+	display: block;
+	text-align: center;
+	font-size: 1.2em;
+	font-family: 'Raleway', sans-serif;
+	font-weight: bold;
+	padding-top: 30px;
+	letter-spacing: 4px;
+	padding-bottom: 30px;
+	transition: all.3s ease;
+	color: #142C3E;
+}
+
+/*new lecture content*/
+
+#lecture-create-container{
+	width: 80%;
+	background-color: #CCD4D5;
+	margin: 0 auto;
+	font-family: 'Raleway', sans-serif;
+}
+.lecture-title-create, .lecture-desc-create, .lecture-title-edit, .lecture-desc-edit{
+	width: 80%;
+	display: block;
+	padding: 10px;
+	margin: 0 auto;
+	font-size: 1.2em;
+	margin-bottom: 20px !important;
 }
 .datepicker-days{
-	margin-left: 20px;
+	margin-left: 40px;
+}
+#date-picker{
+	font-family: 'Helvetica';
 }
 .date-picker{
 	width: 120px;
-	/*margin: 0 auto;*/
 	display: block;
 	border-color: #BABABA;
 	font-size: 1.2em;
 	padding: 10px; 
 	border-radius: 0px;
-}
-.lectures-title{
-	display: inline-block;
-	width: 80%;
-	font-size: 1.8em;
-	font-weight: bold;
-	padding: 10px;
-	padding-left: 30px;
-	margin: 0 auto;
-	margin-left: 10%;
-	border-bottom: solid 1px;
-}
-#lecture-create-container{
-	width: 80%;
-	background-color: #CCD4D5;
-	margin: 0 auto;
 }
 .discard-create{
 	position: relative;
@@ -80,39 +99,45 @@ body {
 }
 .calendar-container{
 	margin-left: 10% !important;
-}
-.lecture-title-create, .lecture-desc-create, .lecture-url-create, .lecture-title-edit, .lecture-desc-edit{
-	width: 80%;
-	display: block;
-	padding: 10px;
-	margin: 0 auto;
-	font-size: 1.2em; 
-	/*margin-top: */
-	margin-bottom: 20px !important;
-}
-.lecture-url-create{
-	/*float: right;*/
-	display: inline-block;
-	width: 30%;
-}
-label{
-	margin-top: 20px;
-	margin-bottom: 20px;
-	margin-left:  10%;
-	font-size: 1.2em;
-}
-.calendar-container{
 	margin-bottom: 8px;	
+}
+
+/*lecture content*/
+
+.lectures-title{
+	display: inline-block;
+	width: 80%;
+	font-size: 1.8em;
+	font-family: 'Raleway', sans-serif;
+	font-weight: bold;
+	padding: 30px;
+	padding-bottom: 15px; 
+	margin: 0 auto;
+	margin-left: 10%;
+	border-bottom: solid 1px;
 }
 .lecture-date{
 	display: inline-block;
 	width: 20% !important;
+	font-family: 'Helvetica';
 }
 .short-url{
 	display: none;
 	margin-left: 10px;
 	width: 17%;
 }
+.question-count{
+	margin-left: 30px;
+	width: 38%;
+	display: inline-block;
+	font-weight: bolder;
+}
+.shorten-url{
+	display: inline-block;
+}
+
+/*lecture page buttons*/
+
 #create-lecture, #update-lecture, .shorten-url{
 	margin-left: 10%;
 	background-color: #142C3E;
@@ -120,13 +145,16 @@ label{
 	border: none;
 	transition: all .3s ease;
 	margin-bottom: 20px !important;
+	font-weight: bold;
 }
 #create-lecture:hover, #update-lecture:hover, .shorten-url:hover{
 	background-color: #6D7880;
 }
+
+/*lecture edit content*/
+
 #edit-lecture{
 	display: none;
-	/*position: absolute;*/
 	z-index: 9999;
 	position: fixed;
 	right: 0;
@@ -135,32 +163,17 @@ label{
 	width: 100%;
 	top: 30%;
 }
-.question-count{
-	/*float: left;*/
-	/*font-size: 1.5em;*/
-	margin-left: 30px;
-	width: 38%;
-	display: inline-block;
-	/*background-color: blue;*/
-	font-weight: bolder;
-}
-.caption .url{
-	font-size: 1em;
-	margin-top: 10px;
-}
-.shorten-url{
-	/*float: right;*/
-	display: inline-block;
-	/*margin-left: 20px;*/
-	/*position: relative !important;*/
-	/*left: 20px !important;*/
-	/*margin-left: 7%;*/
-}
+
+/*mobile*/
+
 @media only screen and (max-width: 800px) {
 	#discard-edit-lecture{
 		display: none;
 	}
 	#lecture-create-container{
 		padding-top: 20px !important;
+	}
+	.short-url{
+		width: 50%;
 	}
 }

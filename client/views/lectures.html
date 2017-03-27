@@ -1,49 +1,46 @@
 <template name="lectures">
-  {{> navigation }}
-  <div id= "lectures-bg">
-  </div>
-  <div id = "lectures-container">
-    <p class = "lectures-title">{{ classObj.title }}</p>
-    <h3 id ="new-lecture" data-toggle="collapse" href="#lecture-create" aria-expanded="false" aria-controls="lecture-create"><span class="glyphicon glyphicon-plus"></span> NEW LECTURE</h3>
-    <div  class="collapse" id="lecture-create">
-      <div id="lecture-create-container">
-        <div class="caption">
-          <span class="glyphicon glyphicon-remove discard-create"></span>
-          <input class="lecture-title-create" type="text" placeholder="Lecture Title">
-          <textarea class="lecture-desc-create" placeholder="Lecture Description"></textarea>
-          <!-- <label for="url-input">The Question Page's unique URL will be: http://localhost:3000/{{classObj.title}}/ </label><input id = "url-input" class="lecture-url-create" type="text" placeholder="Question Page URL"> -->
-          {{>calendar}}
-          <button id="create-lecture" type="button" class="btn btn-primary" onclick="this.blur();"><span class="glyphicon glyphicon-plus"></span> &nbsp;Launch</button>
+    {{> navigation }}
+    <div id= "lectures-bg">
+    </div>
+    <div id = "lectures-container">
+        <p class = "lectures-title">{{ classObj.title }}</p>
+        <h3 id ="new-lecture" data-toggle="collapse" href="#lecture-create" aria-expanded="false" aria-controls="lecture-create"><span class="glyphicon glyphicon-plus"></span> NEW LECTURE</h3>
+        <div  class="collapse" id="lecture-create">
+            <div id="lecture-create-container">
+                <div class="caption">
+                    <span class="glyphicon glyphicon-remove discard-create"></span>
+                    <input class="lecture-title-create" type="text" placeholder="Lecture Title">
+                    <textarea class="lecture-desc-create" placeholder="Lecture Description"></textarea>
+                    {{>calendar}}
+                    <button id="create-lecture" type="button" class="btn btn-primary" onclick="this.blur();"><span class="glyphicon glyphicon-plus"></span> &nbsp;Launch</button>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    {{#each lecture in lectures}}
-      <div class="row">
-          <div class="thumbnail" id='{{lecture._id}}'>
-            <div class="caption">
-              <span class="glyphicon glyphicon-remove delete control"></span>
-              <span class="glyphicon glyphicon-pencil edit control"></span>
-              <p class="title">{{lecture.title}} &nbsp;&nbsp;&nbsp; <p class = 'lecture-date'>{{lecture.date}}</p></p>
-              <p class="desc">{{lecture.desc}}</p>
+        {{#each lecture in lectures}}
+            <div class="row">
+                <div class="thumbnail" id='{{lecture._id}}'>
+                    <div class="caption">
+                        <span class="glyphicon glyphicon-remove delete control"></span>
+                        <span class="glyphicon glyphicon-pencil edit control"></span>
+                        <p class="title">{{lecture.title}} &nbsp;&nbsp;&nbsp; <p class = 'lecture-date'>{{lecture.date}}</p></p>
+                        <p class="desc">{{lecture.desc}}</p>
+                    </div>
+                    <button type="button" class="btn btn-primary shorten-url" onclick="this.blur();">Short URL:</button><input class="short-url">
+                    <p class="question-count">Questions: {{lecture.lectureCount}}</p>
+                </div>
             </div>
-            <button type="button" class="btn btn-primary shorten-url" onclick="this.blur();">Short URL:</button><input class="short-url">
-            <p class="question-count">Questions: {{lecture.lectureCount}}</p>
-          </div>
-      </div>
-    {{/each}}
-    <div>
-      <div class="row" id="edit-lecture">
-          <div class="thumbnail">
-            <div class="caption">
-              <span id="discard-edit-lecture" class="glyphicon glyphicon-remove delete control"></span>
-              <input class="lecture-title-edit" type="text" placeholder="Lecture Title">
-              <textarea class="lecture-desc-edit" placeholder="Lecture Description"></textarea>
-              {{>calendar}}
-              <button id="update-lecture" type="button" class="btn btn-primary" onclick="this.blur();"><span class="glyphicon glyphicon-ok"></span> &nbsp;Update</button>
+        {{/each}}
+            <div class="row" id="edit-lecture">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <span id="discard-edit-lecture" class="glyphicon glyphicon-remove delete control"></span>
+                        <input class="lecture-title-edit" type="text" placeholder="Lecture Title">
+                        <textarea class="lecture-desc-edit" placeholder="Lecture Description"></textarea>
+                        {{>calendar}}
+                        <button id="update-lecture" type="button" class="btn btn-primary" onclick="this.blur();"><span class="glyphicon glyphicon-ok"></span> &nbsp;Update</button>
+                    </div>
+                </div>
             </div>
-          </div>
-      </div>
+    <div class = "mask"></div>
     </div>
-  <div class = "mask"></div>
-  </div>
 </template>

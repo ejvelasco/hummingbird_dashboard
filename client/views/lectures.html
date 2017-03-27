@@ -1,12 +1,14 @@
 <template name="lectures">
   {{> navigation }}
+  <div id= "lectures-bg">
+  </div>
   <div id = "lectures-container">
     <p class = "lectures-title">{{ classObj.title }}</p>
-    <a onclick="this.blur();" id="new-lecture" data-toggle="collapse" href="#lecture-create" aria-expanded="false" aria-controls="lecture-create"><span class="glyphicon glyphicon-plus"></span> &nbsp; New Lecture Page</a>
+    <h3 id ="new-lecture" data-toggle="collapse" href="#lecture-create" aria-expanded="false" aria-controls="lecture-create"><span class="glyphicon glyphicon-plus"></span> &nbsp; NEW LECTURE</h3>
     <div  class="collapse" id="lecture-create">
       <div id="lecture-create-container">
         <div class="caption">
-          <a href="#" class="discard-create"><span class="glyphicon glyphicon-remove"></span></a>
+          <span class="glyphicon glyphicon-remove discard-create"></span>
           <input class="lecture-title-create" type="text" placeholder="Lecture Title">
           <textarea class="lecture-desc-create" placeholder="Lecture Description"></textarea>
           <!-- <label for="url-input">The Question Page's unique URL will be: http://localhost:3000/{{classObj.title}}/ </label><input id = "url-input" class="lecture-url-create" type="text" placeholder="Question Page URL"> -->
@@ -19,17 +21,12 @@
       <div class="row">
           <div class="thumbnail" id='{{lecture._id}}'>
             <div class="caption">
-              <a href="#" class="delete control"><span class="glyphicon glyphicon-remove"></span></a>
-              <a href="#" class="edit control"><span class="glyphicon glyphicon-pencil"></span></a>
-              <p class="title">{{lecture.title}} &nbsp;&nbsp;&nbsp; <a class = 'lecture-date'>Date: {{lecture.date}}</a></p>
+              <span class="glyphicon glyphicon-remove delete control"></span>
+              <span class="glyphicon glyphicon-pencil edit control"></span>
+              <p class="title">{{lecture.title}} &nbsp;&nbsp;&nbsp; <p class = 'lecture-date'>{{lecture.date}}</p></p>
               <p class="desc">{{lecture.desc}}</p>
-              <p class="url">Question Page URL: {{lecture.url}}</p>
-              <p class="url">Questions - {{lecture.lectureCount}}</p>
-              <!-- {{#if lecture.updated}}
-                <p class= "date">Updated on: {{lecture.updated}}</p>
-              {{else}}
-                <p class= "date">Created on: {{lecture.created}}</p> 
-              {{/if}} -->
+              <p class="date">Question Page URL: {{lecture.url}}</p>
+              <p class="lecture-count">Questions - {{lecture.lectureCount}}</p>
             </div>
           </div>
       </div>
@@ -38,7 +35,7 @@
       <div class="row" id="edit-lecture">
           <div class="thumbnail">
             <div class="caption">
-              <a href="#" class="delete control" id="discard-edit-lecture"><span class="glyphicon glyphicon-remove"></span></a>
+              <span id="discard-edit-lecture" class="glyphicon glyphicon-remove delete control"></span>
               <input class="lecture-title-edit" type="text" placeholder="Lecture Title">
               <textarea class="lecture-desc-edit" placeholder="Lecture Description"></textarea>
               {{>calendar}}

@@ -10,3 +10,6 @@ Template.welcome.events({
 Accounts.onLogout(function(){
 	Router.go('/');
 });
+Accounts.onLogin(function(){
+	Router.go('/classes');
+})

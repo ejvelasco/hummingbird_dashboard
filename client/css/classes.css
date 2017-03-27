@@ -22,13 +22,12 @@
 	top: 0px;
 	left: 98%;
 }
-#classes-container{
-	width: 100%;
+#classes-bg{
 	height: 100%;
-	position: absolute !important;
-	margin: 0 !important;
-	padding: 0 !important;
-	top: 80px !important;
+	width: 100%;
+	top: 0;
+	z-index: -1;
+	position: fixed;
 	background: repeating-linear-gradient(
 	  45deg,
 	  #F0F0F0,
@@ -36,6 +35,13 @@
 	  #E3E3E3 640px,
 	  #E3E3E3 1280px
 	);
+}
+#classes-container{
+	width: 100%;
+	position: absolute !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	top: 80px !important;
 }
 #new-class{
 	cursor: pointer;
@@ -47,9 +53,6 @@
 	padding-bottom: 10px;
 	transition: all.3s ease;
 	color: #142C3E;
-}
-#new-class:hover{
-	color: #8996A0;
 }
 .well{
 	width: 50.5%;
@@ -159,8 +162,6 @@
 	color: black !important;
 }
 @media only screen and (max-width: 800px) {
-  .lecture-count{
-  }
   .title{
   	float: left;
   }

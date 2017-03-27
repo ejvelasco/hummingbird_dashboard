@@ -51,16 +51,14 @@ Template.lectures.events({
 		lectureTitle = $(parentId + '.thumbnail .title').text();
 		lectureDesc =  $(parentId + '.thumbnail .desc').text();
 		lectureDate = $(parentId + '.thumbnail .lecture-date').text();
-
-		lectureDate = lectureDate.replace('Date: ', '');
-		lectureTitle = lectureTitle.substring(0, lectureTitle.indexOf('Date:'));
+		lectureDate = lectureDate.replace('On: ', '');
+		lectureTitle = lectureTitle.substring(0, lectureTitle.lastIndexOf(' '));
 		lectureTitle = lectureTitle.replace(/\s+$/, '');
 		$('.lecture-title-edit').val(lectureTitle);
 		$('.lecture-desc-edit').val(lectureDesc);
 		$('#edit-lecture .date-picker').val(lectureDate);
 		$('#edit-lecture, .mask').fadeIn(300);
 		$('#edit-lecture .thumbnail').addClass(parentId);
-		// $('body').css('filter', 'brightness(.8)');
 	},
 	'click #discard-edit-lecture': function(event){
 		$('#edit-lecture, .mask').fadeOut(300);
@@ -85,5 +83,13 @@ Template.lectures.events({
 	'click .caption .title': function(event){
 		parentId = (event.currentTarget.parentNode).parentNode.getAttribute('id');
 		Router.go('/'+parentId+'/questions-page');
+	}, 
+	'click .mask': function(event){
+		setTimeout(function(){
+			$('.lecture-title-edit').val('');	
+			$('.lecture-desc-edit').val('');
+		});
+		$('.mask').fadeOut(400);
+		$('#edit-lecture').fadeOut(300)
 	}
 });

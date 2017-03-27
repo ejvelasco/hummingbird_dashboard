@@ -25,9 +25,9 @@
               <span class="glyphicon glyphicon-pencil edit control"></span>
               <p class="title">{{lecture.title}} &nbsp;&nbsp;&nbsp; <p class = 'lecture-date'>{{lecture.date}}</p></p>
               <p class="desc">{{lecture.desc}}</p>
-              <p class="date">Question Page URL: {{lecture.url}}</p>
-              <p class="lecture-count">Questions - {{lecture.lectureCount}}</p>
             </div>
+            <button type="button" class="btn btn-primary shorten-url" onclick="this.blur();"><span class="glyphicon glyphicon-copy"></span> Short URL</button><input class="short-url">
+            <p class="question-count">Questions: {{lecture.lectureCount}}</p>
           </div>
       </div>
     {{/each}}

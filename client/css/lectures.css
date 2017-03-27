@@ -1,3 +1,6 @@
+.hidden{
+	display: none;
+}
 #new-lecture{
 	cursor: pointer;
 	display: block;
@@ -98,7 +101,16 @@ label{
 .calendar-container{
 	margin-bottom: 8px;	
 }
-#create-lecture, #update-lecture{
+.lecture-date{
+	display: inline-block;
+	width: 20% !important;
+}
+.short-url{
+	display: none;
+	margin-left: 10px;
+	width: 20%;
+}
+#create-lecture, #update-lecture, .shorten-url{
 	margin-left: 10%;
 	background-color: #142C3E;
 	margin-top: 20px;
@@ -106,7 +118,7 @@ label{
 	transition: all .3s ease;
 	margin-bottom: 20px !important;
 }
-#create-lecture:hover, #update-lecture:hover{
+#create-lecture:hover, #update-lecture:hover, .shorten-url:hover{
 	background-color: #6D7880;
 }
 #edit-lecture{
@@ -120,16 +132,26 @@ label{
 	width: 100%;
 	top: 30%;
 }
-.lecture-date{
-	float: right;
-	width: 25% !important;
-	text-decoration: none !important;
-	font-size: .7em;
-	letter-spacing: 3px;
+.question-count{
+	/*float: left;*/
+	/*font-size: 1.5em;*/
+	margin-left: 30px;
+	width: 38%;
+	display: inline-block;
+	/*background-color: blue;*/
+	font-weight: bolder;
 }
 .caption .url{
 	font-size: 1em;
 	margin-top: 10px;
+}
+.shorten-url{
+	/*float: right;*/
+	display: inline-block;
+	/*margin-left: 20px;*/
+	/*position: relative !important;*/
+	/*left: 20px !important;*/
+	/*margin-left: 7%;*/
 }
 @media only screen and (max-width: 800px) {
 	#discard-edit-lecture{

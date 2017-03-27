@@ -1,4 +1,4 @@
-var lectureTitle, lectureDesc, classObj, dateEntered, parentClasses, lectureId;
+var lectureTitle, lectureDesc, classObj, dateEntered, parentClasses, lectureId, lectureObjs, longurl; 
 Template.lectures.onCreated(function lecturesOnCreated() {
   Meteor.subscribe('classes');
   Meteor.subscribe('lectures');
@@ -10,7 +10,8 @@ Template.lectures.helpers({
 		return classObj; 
 	}, 
 	lectures : function(){
-		return Lectures.find({parent: classObj._id });
+		lectureObjs = Lectures.find({parent: classObj._id }, {sort: {date: -1}});
+		return lectureObjs
 	}
 });
 Template.lectures.events({
@@ -23,7 +24,6 @@ Template.lectures.events({
 		}, 500);
 	},
 	'click #create-lecture': function(){
-		//IMPLEMENT QUESTION URL
 		lectureTitle = $('.lecture-title-create').val();
 		lectureDesc =  $('.lecture-desc-create').val();
 		lectureDate = $('#date-picker').val();
@@ -91,5 +91,28 @@ Template.lectures.events({
 		});
 		$('.mask').fadeOut(400);
 		$('#edit-lecture').fadeOut(300)
+	},
+	'click .shorten-url': function(event){
+		parentId = (event.currentTarget.parentNode).getAttribute('id');
+		var shortenUrl = function() {
+		  var request = gapi.client.urlshortener.url.insert({
+		    resource: {
+		      longUrl: 'http://localhost:3000/'+parentId+'/questions-page'
+		    }
+		  });
+		  request.execute(function(response) {
+		    var shortUrl = response.id;
+		    $('#'+parentId+' .short-url').val(shortUrl).fadeIn(400);
+		  });
+		};
+
+		var googleApiLoaded = function() {
+		  gapi.client.setApiKey("AIzaSyCuMEnVcF_qQ02xI49nbWmEuU_IqQopLkU")
+		  gapi.client.load("urlshortener", "v1", shortenUrl);
+		};
+
+		window.googleApiLoaded = googleApiLoaded;
+		$(document.body).append('<script src="https://apis.google.com/js/client.js?onload=googleApiLoaded"></script>');
+		
 	}
 });

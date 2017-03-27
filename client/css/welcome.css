@@ -89,11 +89,11 @@ p {
 }
 #welcome-title{
   font-weight: 900;
-  font-size: 4em;
+  font-size: 3em;
   text-align: center;
   margin-left: 25%;
   color: white;
-  margin-top: 250px;
+  margin-top: 350px;
   position: relative;
   width: 35%;
   /*display: inline-block;*/

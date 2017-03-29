@@ -1,13 +1,15 @@
+/*welcome nav*/
+
 #navigation-welcome{
   background-color: #A51C30;
   border: none;
   border-radius: 0;
   font-family: 'Raleway', sans-serif;
   padding: 20px;
-   /*-webkit-box-shadow: 0 5px 30px 5px #999;
-    -moz-box-shadow: 0 5px 30px 5px #999;
-    box-shadow: 0 5px 30px 5px #999;*/
 }
+
+/*default nav*/
+
 #navigation-default{
   background-color: #A51C30;
   border: none;
@@ -18,6 +20,9 @@
   font-family: 'Raleway', sans-serif;
   padding-left: 30px;
 }
+
+/*brand and links*/
+
 .navbar-brand,
 #navigation-welcome .navbar-nav li a {
     line-height: 80px;
@@ -48,76 +53,6 @@
 .navbar-nav li a .glyphicon{
   font-size: 1.3em;
 }
-.dropdown-menu li a{
-  height: 30px;
-  line-height: 30px;
-  font-size: .95em;
-  color: black !important;
-  text-align: center;
-}
-.dropdown-menu li a:hover{
-  margin-left: 20px;
-  background-color: #F8F8F8 !important;
-}
-.dropdown-menu {
-  background-color: #F8F8F8;
-  width: 300px;
-}
-.open{
-  background-color: #414242 !important;
-}
-#sign-in{
-  position: relative;
-  margin-top: 19%;
-  margin-right: 10px;
-  padding: 25px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-size: 1em;
-  letter-spacing: 3px;
-  transition: all .3s ease;
-  color: white;
-  background-color: #781423;
-  border: none;
-}
-#sign-in:hover{
-  background-color: #5C0C18;
-}
-.dropdown-menu li .sign-out:hover{
-  color: #A51C30 !important;
-  margin-left: 20px;
-  background-color: #F8F8F8 !important;
-}
-.btn:focus,.btn:active {
-   outline: none !important;
-}
-@media only screen and (max-width: 800px) {
-    #navigation-welcome{
-      background-color: #A51C30;
-      padding: 15px !important;
-    }
-    .navbar-nav{
-      background-color: #A51C30;
-    }
-    .navbar-brand,
-    .navbar-nav li a {
-        line-height: 80px;
-        height: 80px;
-        font-size: .9em !important;
-        padding: 10px;
-        padding-top: 0px;
-    }
-    .navbar-brand{
-      font-size: 1.7em !important;
-    }
-    #sign-in{
-      margin-top: 10px;
-      border: none;
-    }
-    .logo-img{
-      display: none;
-    }
-}
 .navbar-toggle{
   background-color: #A51C30 !important;
   margin-top: 20px;
@@ -139,7 +74,89 @@
 #dd-control{
   cursor: pointer;
 }
+/*dropdown menu*/
+
+.dropdown-menu li a{
+  height: 30px;
+  line-height: 30px;
+  font-size: .95em;
+  color: black !important;
+  text-align: center;
+}
+.dropdown-menu li a:hover{
+  margin-left: 20px;
+  background-color: #F8F8F8 !important;
+}
+.dropdown-menu {
+  background-color: #F8F8F8;
+  width: 300px;
+}
+.open{
+  background-color: #414242 !important;
+}
+.dropdown-menu li .sign-out:hover{
+  color: #A51C30 !important;
+  margin-left: 20px;
+  background-color: #F8F8F8 !important;
+}
+/*sign in button*/
+
+#sign-in{
+  position: relative;
+  margin-top: 19%;
+  margin-right: 10px;
+  padding: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 1em;
+  letter-spacing: 3px;
+  transition: all .3s ease;
+  color: white;
+  background-color: #781423;
+  border: none;
+}
+#sign-in:hover{
+  background-color: #5C0C18;
+}
+.btn:focus,.btn:active {
+   outline: none !important;
+}
+
+/*class to color elements*/
+
 .crimson{
   color: #6A121F !important;
-  /*background-color: #6A121F !important;*/
 }
+
+/*Mobile*/
+
+@media only screen and (max-width: 800px) {
+    /*adjust menu*/
+    #navigation-welcome{
+      background-color: #A51C30;
+      padding: 15px !important;
+    }
+    .navbar-nav{
+      background-color: #A51C30;
+    }
+    /*adjust menu items*/
+    .navbar-brand,
+    .navbar-nav li a {
+        line-height: 80px;
+        height: 80px;
+        font-size: .9em !important;
+        padding: 10px;
+        padding-top: 0px;
+    }
+    .navbar-brand{
+      font-size: 1.7em !important;
+    }
+    #sign-in{
+      margin-top: 10px;
+      border: none;
+    }
+    .logo-img{
+      display: none;
+    }
+}
+

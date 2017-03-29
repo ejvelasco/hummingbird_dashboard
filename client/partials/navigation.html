@@ -1,33 +1,33 @@
 <template name="navigation">
 	<nav class="navbar navbar-default" id="navigation-default">
     	<div class="container-fluid">
-    	<div class="navbar-header">
-    	   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false">
-    	     <span class="sr-only">Toggle navigation</span>
-    	     <span class="icon-bar"></span>
-    	     <span class="icon-bar"></span>
-    	     <span class="icon-bar"></span>
-    	   </button>
-    	   <a class="navbar-brand home" href="{{pathFor 'homeInstructor'}}" id="logo">
-                <span class="logo-img"></span>
-                <span>HUMMINGBIRD</span>
-            </a>
-    	 </div>
-    	<div id="main-menu" class="collapse navbar-collapse">
-	        <ul class="nav navbar-nav navbar-right">
-            <li><a href="{{pathFor route='classes'}}"><span class="glyphicon glyphicon-education crimson" aria-hidden="true"></span> CLASSES</a></li>
-	        <li>
-            {{#if currentUser.profile.name}}
-            <a id="dd-control"><span class="glyphicon glyphicon-menu-down crimson" aria-expanded="false"></span> SIGNED IN AS {{currentUserName}} </a>
-            {{else}}
-            <a id="dd-control"><span class="glyphicon glyphicon-menu-down crimson" aria-expanded="false"></span> SIGNED IN AS: {{currentUserEmail}} </a>
-            {{/if}}
-            </li>
-            <ul class="dropdown-menu collapse dd-control" id="dd">
-            <li><a href="#" class='sign-out'>Sign Out</a></li>
-            </ul>      
-	     	</ul>
-    	</div>
+        	<div class="navbar-header">
+        	   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false">
+        	       <span class="sr-only">Toggle navigation</span>
+        	       <span class="icon-bar"></span>
+        	       <span class="icon-bar"></span>
+        	       <span class="icon-bar"></span>
+        	   </button>
+        	   <a class="navbar-brand home" href="{{pathFor 'homeInstructor'}}" id="logo">
+                    <span class="logo-img"></span>
+                    <span>HUMMINGBIRD</span>
+                </a>
+        	</div>
+        	<div id="main-menu" class="collapse navbar-collapse">
+    	        <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{pathFor route='classes'}}"><span class="glyphicon glyphicon-education crimson" aria-hidden="true"></span> CLASSES</a></li>
+    	            <li>
+                    {{#if currentUser.profile.name}}
+                        <a id="dd-control"><span class="glyphicon glyphicon-menu-down crimson" aria-expanded="false"></span> SIGNED IN AS {{currentUserName}} </a>
+                    {{else}}
+                        <a id="dd-control"><span class="glyphicon glyphicon-menu-down crimson" aria-expanded="false"></span> SIGNED IN AS: {{currentUserEmail}} </a>
+                    {{/if}}
+                    </li>
+                    <ul class="dropdown-menu collapse dd-control" id="dd">
+                        <li><a href="#" class='sign-out'>Sign Out</a></li>
+                    </ul>      
+    	     	</ul>
+        	</div>
     	</div>
 	</nav>
 </template>

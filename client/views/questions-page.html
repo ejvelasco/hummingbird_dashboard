@@ -1,94 +1,92 @@
 <template name="questionsPage">
-<div id=questions-page-bg>
-</div>
-<div id="questions-page-container">
-{{>navigationStudent}}
-<div id="questions-page-spinner">
-{{> spinner}}
-</div>
-<div  class="collapse" id="new-question-ask">
-  <div class="well">
-    <div class="caption">
-      <span id="discard-new-question" class="glyphicon glyphicon-remove"></span>
-      <input id="question-input" type="text" placeholder="What would you like to ask?"><img src="/img/wolfram-logo.png" id="wolfram-logo">
-      <button id="new-question-submit" type="button" class="btn btn-primary" onclick="this.blur();">Ask</button>
+    <div id=questions-page-bg>
     </div>
-  </div>
-</div>
-<div id="questions-container">
-{{#if questions}}
-{{#each question in questions}}
-  <div class="row">
-      <div class="thumbnail row-question" id='{{question._id}}'>
-        <div class="caption">
-          <p class="question">{{question.text}}</p> 
-        	{{#if question.updated}}
-        	<p class="question-date">{{question.updatedOn}} (edited)</p>
-        	{{else if question.date}}
-        	<p class="question-date">{{question.datePosted}}</p>
-        	{{/if}}
-          <div class="question-menu">
-          <p class="comment-count">{{question.commentCounter}}</p>
-          <span class="glyphicon glyphicon-comment comment-toggle"></span> 
-          {{#if question.isOwned}}
-          <span class="glyphicon glyphicon-remove question-item-delete"></span> 
-          <span class="glyphicon glyphicon-pencil question-item-edit"></span> 
-          {{/if}}
-          {{#if question.starred}}
-          <span class="question-control like glyphicon glyphicon-star"></span>
-          {{else}}
-          <span class="question-control like glyphicon glyphicon-star-empty"></span>
-          {{/if}}
-          {{#if question.stars}}
-          <p class="like-count">{{question.stars}}</p>
-          {{else}}
-          <p class="like-count"></p>
-          {{/if}}
-          </div>
+    <div id="questions-page-container">
+        {{>navigationStudent}}
+        <div id="questions-page-spinner">
+            {{> spinner}}
         </div>
-        <div class="comments">
-            {{#if question.comments}}
-            {{#each comment in question.comments}}
-            <div class="comment-container" id ="{{comment.id}}">
-            <span class="glyphicon glyphicon-remove comment-delete"></span>
-            <p class="comment">{{comment.text}}</p>
-            <p class="comment-date">{{comment.datePosted}}</p>
+        <div  class="collapse" id="new-question-ask">
+            <div class="well">
+                <div class="caption">
+                    <span id="discard-new-question" class="glyphicon glyphicon-remove"></span>
+                    <input id="question-input" type="text" placeholder="What would you like to ask?"><img src="/img/wolfram-logo.png" id="wolfram-logo">
+                    <button id="new-question-submit" type="button" class="btn btn-primary" onclick="this.blur();">Ask</button>
+                </div>
             </div>
-            {{/each}}
+        </div>
+        <div id="questions-container">
+            {{#if questions}}
+                {{#each question in questions}}
+                    <div class="row">
+                        <div class="thumbnail row-question" id='{{question._id}}'>
+                            <div class="caption">
+                                <p class="question">{{question.text}}</p> 
+                	            {{#if question.updated}}
+                	                <p class="question-date">{{question.updatedOn}} (edited)</p>
+                	            {{else if question.date}}
+                	                <p class="question-date">{{question.datePosted}}</p>
+                	            {{/if}}
+                                <div class="question-menu">
+                                    <p class="comment-count">{{question.commentCounter}}</p>
+                                    <span class="glyphicon glyphicon-comment comment-toggle"></span> 
+                                    {{#if question.isOwned}}
+                                        <span class="glyphicon glyphicon-remove question-item-delete"></span> 
+                                        <span class="glyphicon glyphicon-pencil question-item-edit"></span> 
+                                    {{/if}}
+                                    {{#if question.starred}}
+                                        <span class="question-control like glyphicon glyphicon-star"></span>
+                                    {{else}}
+                                        <span class="question-control like glyphicon glyphicon-star-empty"></span>
+                                    {{/if}}
+                                    {{#if question.stars}}
+                                        <p class="like-count">{{question.stars}}</p>
+                                    {{else}}
+                                        <p class="like-count"></p>
+                                    {{/if}}
+                                </div>
+                            </div>
+                            <div class="comments">
+                                {{#if question.comments}}
+                                    {{#each comment in question.comments}}
+                                        <div class="comment-container" id ="{{comment.id}}">
+                                            <span class="glyphicon glyphicon-remove comment-delete"></span>
+                                            <p class="comment">{{comment.text}}</p>
+                                            <p class="comment-date">{{comment.datePosted}}</p>
+                                        </div>
+                                    {{/each}}
+                                {{/if}}
+                                <p class="comment">
+                                    <input class="new-comment" placeholder="Write Comment...">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            {{else}}
+                <div class="row">
+                    <div class="thumbnail row-question" id='{{question._id}}'>
+                        <div class="caption">
+                            <p class="question no-questions">There are currently no questions on this feed. Go ahead and ask the first!</p> 
+                        </div>
+                    </div>
+                </div>
             {{/if}}
-            <p class="comment">
-              <input class="new-comment" placeholder="Write Comment...">
-            </p>
-            
-        </div>
-      </div>
-  </div>
-  {{/each}}
-  {{else}}
-  <div class="row">
-      <div class="thumbnail row-question" id='{{question._id}}'>
-        <div class="caption">
-          <p class="question no-questions">There are currently no questions on this feed. Go ahead and ask the first!</p> 
           </div>
-        </div>
-  </div>
-  {{/if}}
-  </div>
-  <div class="row">
-      <div class="thumbnail" id='question-edit'>
-        <div class="caption">
-          	<span class="glyphicon glyphicon-remove question-edit-discard"></span>
-        	<input id="question-edit-input" type="text">
-        	<button id="question-edit-submit" type="button" class="btn btn-primary" onclick="this.blur();">Update</button>
-        </div>
-      </div>
-  </div>
-  <div id="wolfram-response">
-    <span class="glyphicon glyphicon-remove" id="wolfram-response-discard"></span>
-    <div id="responses-container">
-      
+            <div class="row">
+                <div class="thumbnail" id='question-edit'>
+                <div class="caption">
+                    <span class="glyphicon glyphicon-remove question-edit-discard"></span>
+                    <input id="question-edit-input" type="text">
+                    <button id="question-edit-submit" type="button" class="btn btn-primary" onclick="this.blur();">Update</button>
+                    </div>
+                </div>
+            </div>
+            <div id="wolfram-response">
+                <span class="glyphicon glyphicon-remove" id="wolfram-response-discard"></span>
+                <div id="responses-container">
+                </div>
+            </div>
+        <div class = "mask"></div>
     </div>
-  </div>
-  <div class = "mask"></div>
-  </div>
 </template>

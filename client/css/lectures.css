@@ -78,6 +78,7 @@ body {
 }
 .datepicker-days{
 	margin-left: 40px;
+	font-family: 'Helvetica';
 }
 #date-picker{
 	font-family: 'Helvetica';

@@ -18,3 +18,4 @@ Template.welcome.events({
 		$('.mask').fadeOut(300);;
 	},
 });
+

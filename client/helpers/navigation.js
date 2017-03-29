@@ -26,9 +26,10 @@ Template.navigation.events({
     }
   }
 });
+var attemptedLogin = false;
 //hide form on login
 Tracker.autorun(function () {
-    if(Meteor.loggingIn()) {
+    if(Meteor.userId()) {
         $('#user-form').hide();
     }
 });

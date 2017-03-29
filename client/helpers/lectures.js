@@ -130,7 +130,7 @@ Template.lectures.events({
 		var shortenUrl = function() {
 		 	var request = gapi.client.urlshortener.url.insert({
 			    resource: {
-			      	longUrl: 'http://localhost:3000/'+parentId+'/questions-page'
+			      	longUrl: 'http://'+window.location.hostname+':3000/'+parentId+'/questions-page'
 			    }
 			});
 		  	request.execute(function(response) {

@@ -140,7 +140,7 @@ Template.lectures.events({
 		};
 		//set api key and load url shortener
 		var googleApiLoaded = function() {
-		  	gapi.client.setApiKey("AIzaSyCuMEnVcF_qQ02xI49nbWmEuU_IqQopLkU")
+		  	gapi.client.setApiKey("YOUR_API_KEY")
 		  	gapi.client.load("urlshortener", "v1", shortenUrl);
 		};
 		window.googleApiLoaded = googleApiLoaded;

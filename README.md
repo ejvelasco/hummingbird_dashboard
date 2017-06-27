@@ -1,4 +1,4 @@
-#H3 A web app that empowers students to comfortably ask questions and help each other:
+H3 A web app that empowers students to comfortably ask questions and help each other:
 
 1. Instructors create virtual Classes via a Dashboard.
 2. Whenever an instructor adds a Lecture to the Class,a Questions Page is created for that Lecture.
